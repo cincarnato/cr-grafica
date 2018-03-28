@@ -60,11 +60,11 @@ class FormularioCinta
     public $medida = null;
 
     /**
-     * @Annotation\Type("Zend\Form\Element\Text")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"cantidad", "description":"", "addon":""})
-     * @ORM\Column(type="integer", length=11, unique=false, nullable=true,
-     * name="cantidad")
+     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
+     * @Annotation\Options({"label":"cantidad","empty_option": "",
+     * "target_class":"\Cr\Entity\CantidadPrecio", "description":""})
+     * @ORM\ManyToOne(targetEntity="\Cr\Entity\CantidadPrecio")
+     * @ORM\JoinColumn(name="cantidad_id", referencedColumnName="id", nullable=true)
      */
     public $cantidad = null;
 

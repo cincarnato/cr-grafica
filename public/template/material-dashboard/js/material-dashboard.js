@@ -1,6 +1,7 @@
 
 (function() {
     isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+    isWindows = false;
 
     if (isWindows && !$('body').hasClass('sidebar-mini')) {
 
@@ -221,7 +222,7 @@ md = {
     initSidebarsCheck: function() {
         if ($(window).width() <= 991) {
             if ($sidebar.length != 0) {
-                md.initRightMenu();
+                // md.initRightMenu();
             }
         }
     },

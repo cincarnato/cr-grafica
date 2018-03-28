@@ -134,6 +134,30 @@ return [
                             ],
                         ],
                     ],
+                    'CantidadPrecio' => [
+                        'type' => 'Literal',
+                        'mayTerminate' => false,
+                        'options' => [
+                            'route' => '/cantidad-precio',
+                            'defaults' => [
+                                'controller' => \Cr\Controller\CantidadPrecioController::CLASS,
+                                'action' => 'grid',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'Grid' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/grid',
+                                    'defaults' => [
+                                        'controller' => \Cr\Controller\CantidadPrecioController::CLASS,
+                                        'action' => 'grid',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],

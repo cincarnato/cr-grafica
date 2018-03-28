@@ -8824,7 +8824,6 @@ fieldset[disabled] .form-group .form-control {
 
 .form-group .help-block {
     position: absolute;
-    display: none;
 }
 
 .form-group .form-control.valid:focus {
