@@ -3907,16 +3907,16 @@
         },
         {
             "name": "zf-metal/security",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zf-metal/Security.git",
-                "reference": "32369582e30c09447b8e2dcbc5cd4ff7fc873c83"
+                "reference": "816e920b61baa5413ee5038e4a1e71a40c5691a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zf-metal/Security/zipball/32369582e30c09447b8e2dcbc5cd4ff7fc873c83",
-                "reference": "32369582e30c09447b8e2dcbc5cd4ff7fc873c83",
+                "url": "https://api.github.com/repos/zf-metal/Security/zipball/816e920b61baa5413ee5038e4a1e71a40c5691a3",
+                "reference": "816e920b61baa5413ee5038e4a1e71a40c5691a3",
                 "shasum": ""
             },
             "require": {
@@ -3965,7 +3965,7 @@
             "keywords": [
                 "zf3"
             ],
-            "time": "2018-03-16T14:04:07+00:00"
+            "time": "2018-03-23T15:32:14+00:00"
         },
         {
             "name": "zf-metal/security-social",
