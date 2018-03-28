@@ -36,7 +36,7 @@ class CantidadPrecio
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"type":"text"})
      * @Annotation\Options({"label":"cantidad", "description":"", "addon":""})
-     * @ORM\Column(type="integer", length=11, unique=true, nullable=false,
+     * @ORM\Column(type="integer", length=11, unique=false, nullable=false,
      * name="cantidad")
      */
     public $cantidad = null;
@@ -44,8 +44,8 @@ class CantidadPrecio
     /**
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"precio", "description":"", "addon":""})
-     * @Annotation\Validator({"name":"Float"})
+     * @Annotation\Options({"label":"precio", "description":"Separar decimal con punto (.)", "addon":""})
+     * @Annotation\Validator({"name":"Float", "options":{"local":"en_US"}})
      * @ORM\Column(type="decimal", scale=2, precision=11, unique=false, nullable=true,
      * name="precio")
      */
@@ -83,7 +83,7 @@ class CantidadPrecio
 
     public function __toString()
     {
-        return  (string) $this->cantidad;
+        return (string) $this->cantidad;
     }
 
 
