@@ -9,17 +9,17 @@ use Doctrine\ORM\Mapping\UniqueConstraint as UniqueConstraint;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * ImagenOrden
+ * Dibujo
  *
  *
  *
  * @author
  * @license
  * @link
- * @ORM\Table(name="cr_imagen_orden")
- * @ORM\Entity(repositoryClass="Cr\Repository\ImagenOrdenRepository")
+ * @ORM\Table(name="cr_dibujo")
+ * @ORM\Entity(repositoryClass="Cr\Repository\DibujoRepository")
  */
-class ImagenOrden
+class Dibujo
 {
 
     /**
@@ -36,7 +36,7 @@ class ImagenOrden
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"type":"text"})
      * @Annotation\Options({"label":"nombre", "description":"", "addon":""})
-     * @ORM\Column(type="string", length=200, unique=true, nullable=false,
+     * @ORM\Column(type="string", length=100, unique=true, nullable=false,
      * name="nombre")
      */
     public $nombre = null;
@@ -44,11 +44,11 @@ class ImagenOrden
     /**
      * @Annotation\Type("Zend\Form\Element\File")
      * @Annotation\Attributes({"type":"file"})
-     * @Annotation\Options({"label":"img","absolutepath":"/var/www/cr-grafica/public/media/imagenes","webpath":"/media/imagenes",
+     * @Annotation\Options({"label":"img","absolutepath":"/var/www/cr-grafica/public/media/dibujos","webpath":"/media/dibujos",
      * "description":""})
-     * @Annotation\Filter({"name":"filerenameupload",
-     * "options":{"target":"/var/www/cr-grafica/public/media/imagenes","use_upload_name":1,"overwrite":1}})
-     * @ORM\Column(type="string", length=0, unique=false, nullable=true, name="img")
+     * @Annotation\Filter({"name":"\ZfMetal\Commons\Filter\RenameUpload",
+     * "options":{"target":"/var/www/cr-grafica/public/media/dibujos","use_upload_name":1,"overwrite":1}})
+     * @ORM\Column(type="string", length=100, unique=false, nullable=false, name="img")
      */
     public $img = null;
 
@@ -84,17 +84,17 @@ class ImagenOrden
 
     public function getImg_ap()
     {
-        return "/var/www/cr-grafica/public/media/imagenes";
+        return "/var/www/cr-grafica/public/media/dibujos";
     }
 
     public function getImg_wp()
     {
-        return "/media/imagenes";
+        return "/media/dibujos";
     }
 
     public function getImg_fp()
     {
-        return "/media/imagenes".$this->img;
+        return "/media/dibujos".$this->img;
     }
 
     public function __toString()

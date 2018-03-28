@@ -37,5 +37,5 @@ return [
     //'SkinAdminlte',
     //'SkinCentaurus',
    // 'SkinMaterialDesignB4',
-  // 'SkinMaterialDashboard'
+    'SkinMaterialDashboard'
 ];

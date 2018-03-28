@@ -1,10 +1,11 @@
 <div class="sidebar" data-active-color="rose" data-background-color="white"
      data-image="<?= $this->basePath(); ?>/template/material-dashboard/img/sidebar-1.jpg">
-    <!-- Logo -->
+    <!-- Logo --><a href="/">
     <div class="logo text-center">
-        <?php echo $this->layoutHelper()->getTitle();?>
-    </div>
+          <?php echo $this->layoutHelper()->getTitle();?>
 
+    </div>
+    </a>
 
     <div class="sidebar-wrapper ps-container ps-theme-default ps-active-y">
         <?php if ($user = $this->isAuthenticated()): ?>

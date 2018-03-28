@@ -6,7 +6,7 @@ use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
- * ImagenOrdenControllerFactory
+ * ColorControllerFactory
  *
  *
  *
@@ -14,7 +14,7 @@ use Zend\ServiceManager\Factory\FactoryInterface;
  * @license
  * @link
  */
-class ImagenOrdenControllerFactory implements FactoryInterface
+class ColorControllerFactory implements FactoryInterface
 {
 
     public function __invoke(\Interop\Container\ContainerInterface $container, $requestedName, array $options = null)
@@ -22,8 +22,8 @@ class ImagenOrdenControllerFactory implements FactoryInterface
         /* @var $em \Doctrine\ORM\EntityManager */
         $em = $container->get("doctrine.entitymanager.orm_default");
         /* @var $grid \ZfMetal\Datagrid\Grid */
-        $grid = $container->build("zf-metal-datagrid", ["customKey" => "cr-entity-imagenorden"]);
-        return new \Cr\Controller\ImagenOrdenController($em,$grid);
+        $grid = $container->build("zf-metal-datagrid", ["customKey" => "cr-entity-color"]);
+        return new \Cr\Controller\ColorController($em,$grid);
     }
 
 

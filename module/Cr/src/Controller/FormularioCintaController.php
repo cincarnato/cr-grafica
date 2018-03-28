@@ -5,7 +5,7 @@ namespace Cr\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 
 /**
- * ImagenOrdenController
+ * FormularioCintaController
  *
  *
  *
@@ -13,10 +13,10 @@ use Zend\Mvc\Controller\AbstractActionController;
  * @license
  * @link
  */
-class ImagenOrdenController extends AbstractActionController
+class FormularioCintaController extends AbstractActionController
 {
 
-    const ENTITY = '\\Cr\\Entity\\ImagenOrden';
+    const ENTITY = '\\Cr\\Entity\\FormularioCinta';
 
     /**
      * @var \Doctrine\ORM\EntityManager
