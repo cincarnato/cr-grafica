@@ -35,17 +35,18 @@ class CantidadPrecio
     /**
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"cantidad", "description":"", "addon":""})
-     * @ORM\Column(type="integer", length=11, unique=false, nullable=false,
-     * name="cantidad")
+     * @Annotation\Options({"label":"Opción", "description":"Modo/cantidad",
+     * "addon":""})
+     * @ORM\Column(type="string", length=200, unique=false, nullable=false,
+     * name="opcion")
      */
-    public $cantidad = null;
+    public $opcion = null;
 
     /**
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"precio", "description":"Separar decimal con punto (.)", "addon":""})
-     * @Annotation\Validator({"name":"Float", "options":{"local":"en_US"}})
+     * @Annotation\Options({"label":"precio", "description":"Separar decimal con punto
+     * (.)", "addon":""})
      * @ORM\Column(type="decimal", scale=2, precision=11, unique=false, nullable=true,
      * name="precio")
      */
@@ -61,14 +62,14 @@ class CantidadPrecio
         $this->id = $id;
     }
 
-    public function getCantidad()
+    public function getOpcion()
     {
-        return $this->cantidad;
+        return $this->opcion;
     }
 
-    public function setCantidad($cantidad)
+    public function setOpcion($opcion)
     {
-        $this->cantidad = $cantidad;
+        $this->opcion = $opcion;
     }
 
     public function getPrecio()
@@ -83,7 +84,7 @@ class CantidadPrecio
 
     public function __toString()
     {
-        return (string) $this->cantidad;
+        return  (string) $this->opcion;
     }
 
 

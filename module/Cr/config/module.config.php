@@ -10,8 +10,7 @@ include "zfm-datagrid.cantidad-precio.config.php",
 include "zfm-datagrid.color.config.php",
 include "zfm-datagrid.dibujo.config.php",
 include "zfm-datagrid.formulario-cinta.config.php",
-include "zfm-datagrid.imagen-orden.config.php",
-include "zfm-datagrid.medida.config.php"
+include "zfm-datagrid.imagen-orden.config.php"
 );
 
 return $setting;

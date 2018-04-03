@@ -23,7 +23,7 @@ return [
                     'displayName' => 'ID',
                     "priority" => 0
                 ],
-                'cantidad' => [
+                'opcion' => [
                     "priority" => 1
                 ],
                 'precio' => [

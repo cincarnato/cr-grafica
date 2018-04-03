@@ -25,14 +25,7 @@ return [
                         'route' => 'Cr/Color/Grid',
                     ],
                     [
-                        'label' => 'Medida',
-                        'detail' => '',
-                        'icon' => 'format_size',
-                        'permission' => 'general-admin',
-                        'route' => 'Cr/Medida/Grid',
-                    ],
-                    [
-                        'label' => 'Cantidad & Precio',
+                        'label' => 'Opción & Precio',
                         'detail' => '',
                         'icon' => 'attach_money',
                         'permission' => 'general-admin',
@@ -41,7 +34,7 @@ return [
                 ],
             ],
             [
-                'label' => 'Formulario Cinta',
+                'label' => 'Formularios',
                 'detail' => '',
                 'icon' => 'reorder',
                 'permission' => 'general-admin',

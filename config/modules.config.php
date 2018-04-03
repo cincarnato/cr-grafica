@@ -34,6 +34,7 @@ return [
     //MODULES
     'Application',
     'Cr',
+    'Pedido',
     //'SkinAdminlte',
     //'SkinCentaurus',
    // 'SkinMaterialDesignB4',

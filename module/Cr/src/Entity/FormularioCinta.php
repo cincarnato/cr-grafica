@@ -52,21 +52,12 @@ class FormularioCinta
 
     /**
      * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
-     * @Annotation\Options({"label":"medida","empty_option": "",
-     * "target_class":"\Cr\Entity\Medida", "description":""})
-     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Medida")
-     * @ORM\JoinColumn(name="medida_id", referencedColumnName="id", nullable=true)
-     */
-    public $medida = null;
-
-    /**
-     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
-     * @Annotation\Options({"label":"cantidad","empty_option": "",
+     * @Annotation\Options({"label":"opcion","empty_option": "",
      * "target_class":"\Cr\Entity\CantidadPrecio", "description":""})
      * @ORM\ManyToOne(targetEntity="\Cr\Entity\CantidadPrecio")
-     * @ORM\JoinColumn(name="cantidad_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="opcion_id", referencedColumnName="id", nullable=true)
      */
-    public $cantidad = null;
+    public $opcion = null;
 
     /**
      * @Annotation\Type("Zend\Form\Element\Text")
@@ -125,24 +116,14 @@ class FormularioCinta
         $this->color = $color;
     }
 
-    public function getMedida()
+    public function getOpcion()
     {
-        return $this->medida;
+        return $this->opcion;
     }
 
-    public function setMedida($medida)
+    public function setOpcion($opcion)
     {
-        $this->medida = $medida;
-    }
-
-    public function getCantidad()
-    {
-        return $this->cantidad;
-    }
-
-    public function setCantidad($cantidad)
-    {
-        $this->cantidad = $cantidad;
+        $this->opcion = $opcion;
     }
 
     public function getNombre()

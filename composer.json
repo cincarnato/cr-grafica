@@ -38,7 +38,8 @@
             "SkinCentaurus\\": "module/SkinCentaurus/src/",
             "SkinMaterialDesignB4\\": "module/SkinMaterialDesignB4/src/",
             "SkinMaterialDashboard\\": "module/SkinMaterialDashboard/src/",
-            "Cr\\": "module/Cr/src/"
+            "Cr\\": "module/Cr/src/",
+            "Pedido\\": "module/Pedido/src/"
         }
     },
     "autoload-dev": {
