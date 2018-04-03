@@ -1,0 +1,19 @@
+<link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+
+<div id="app">
+    <pedido :config='<?php echo json_encode($this->config); ?>'></pedido>
+</div>
+
+
+
+<?php
+$this->headScript()
+    ->appendFile('/shared/vuejs/vue.js')
+    ->appendFile('/module/pedido/vue/preview.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/opcion.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/color.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/dibujo.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/pedido.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/app.js', 'text/javascript');
+
+?>

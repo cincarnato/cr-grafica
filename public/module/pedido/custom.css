@@ -1,0 +1,22 @@
+.backpedido{
+    background-image:url('/img/pedido/fondo.gif');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    min-height: 500px;
+}
+
+
+.handleeFont{
+    font-family: 'Handlee', cursive;
+    color:yellow;
+}
+
+.bwhite{
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.byellow{
+    background: yellow;
+}

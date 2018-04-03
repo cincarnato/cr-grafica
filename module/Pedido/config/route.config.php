@@ -13,32 +13,6 @@ return [
                         'action' => 'pedido',
                     ],
                 ],
-                'child_routes' => [
-                    'Pedido' => [
-                        'type' => 'Literal',
-                        'mayTerminate' => true,
-                        'options' => [
-                            'route' => '/pedido',
-                            'defaults' => [
-                                'controller' => \Pedido\Controller\PedidoController::CLASS,
-                                'action' => 'pedido',
-                            ],
-                        ],
-                        'child_routes' => [
-                            'Pedido' => [
-                                'type' => 'Segment',
-                                'mayTerminate' => true,
-                                'options' => [
-                                    'route' => '/pedido',
-                                    'defaults' => [
-                                        'controller' => \Pedido\Controller\PedidoController::CLASS,
-                                        'action' => 'pedido',
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
             ],
         ],
     ],

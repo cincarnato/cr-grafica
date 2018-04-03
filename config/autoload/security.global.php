@@ -4,7 +4,7 @@ namespace ZfMetal\Security;
 
 return [
     'zf-metal-security.options' => [
-        'public_register' => true,
+        'public_register' => false,
         'role_default' => 'invitado',
         'email_confirmation_require' => true,
         'mail_from' => "info.zfmetal@gmail.com",

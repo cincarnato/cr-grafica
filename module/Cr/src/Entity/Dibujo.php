@@ -89,17 +89,17 @@ class Dibujo
 
     public function getImg_wp()
     {
-        return "/media/dibujos";
+        return "/media/dibujos/";
     }
 
     public function getImg_fp()
     {
-        return "/media/dibujos".$this->img;
+        return "/media/dibujos/".$this->img;
     }
 
     public function __toString()
     {
-        return  $this->nombre;
+        return  (string) $this->nombre;
     }
 
 
