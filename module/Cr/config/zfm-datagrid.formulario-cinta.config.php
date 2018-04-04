@@ -15,7 +15,7 @@ return [
                 'columns' => \ZfMetal\Commons\Consts::COLUMNS_ONE,
                 'style' => \ZfMetal\Commons\Consts::STYLE_VERTICAL,
                 'groups' => [
-                    
+
                 ],
             ],
             'columnsConfig' => [
@@ -41,6 +41,10 @@ return [
                 ],
                 'nombre' => [
                     'priority' => 6,
+                    'hidden' => true
+                ],
+                'codigo' => [
+                    'priority' => 10,
                     'hidden' => true
                 ],
                 'opcion' => [

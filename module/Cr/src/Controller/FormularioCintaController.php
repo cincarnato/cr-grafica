@@ -46,7 +46,7 @@ class FormularioCintaController extends AbstractActionController
     public function __construct(\Doctrine\ORM\EntityManager $em, \ZfMetal\Datagrid\Grid $grid)
     {
         $this->em = $em;
-         $this->grid = $grid;
+        $this->grid = $grid;
     }
 
     public function getGrid()
@@ -61,14 +61,36 @@ class FormularioCintaController extends AbstractActionController
 
     public function gridAction()
     {
-      //  $hostName = $this->getRequest()->getHttpHost();
-        $hostName = "http://".$_SERVER['SERVER_NAME'];
-       // $hostName = (string) $this->url('home',array(),array('force_canonical' => true));
-        $this->grid->addExtraColumn("Link","<a target='_blank' href='".$hostName."/pedido/{{id}}'>".$hostName."/pedido/{{id}}</a>","right");
+        $hostName = "http://" . $_SERVER['SERVER_NAME'];
+        $this->grid->addExtraColumn("link unico", "<a target='_blank' href='" . $hostName . "/pedido/{{codigo}}'>" . $hostName . "/pedido/{{codigo}}</a>", "right");
+
+
+
+        $codigo = $this->randomString();
+
+        $this->grid->getSource()->getEventManager()->attach("saveRecord_before", function ($e) use ($codigo) {
+            $object = $e->getParams()["record"];
+            $object->setCodigo($codigo);
+        });
+
+
         $this->grid->prepare();
+
+
+
         return array("grid" => $this->grid);
     }
 
+    private function randomString($length = 10)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 
 }
 

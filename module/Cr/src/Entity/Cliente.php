@@ -36,7 +36,7 @@ class Cliente
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"type":"text"})
      * @Annotation\Options({"label":"nombre", "description":"", "addon":""})
-     * @ORM\Column(type="string", length=60, unique=false, nullable=true,
+     * @ORM\Column(type="string", length=60, unique=true, nullable=false,
      * name="nombre")
      */
     public $nombre = null;

@@ -66,43 +66,45 @@ class PedidoController extends AbstractActionController
     {
         $result = array();
         $result["status"] = false;
-        $id = $this->params("id");
-        $formularioCinta = $this->getEntityFormularioCintaRepository()->find($id);
-        if ($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getPost();
+        $codigo = $this->params("codigo");
+        if ($codigo) {
+            $formularioCinta = $this->getEntityFormularioCintaRepository()->findOneByCodigo($codigo);
+            if ($this->getRequest()->isPost()) {
+                $data = $this->getRequest()->getPost();
 
-            if ($data["nombre"]) {
-                $formularioCinta->setNombre($data["nombre"]);
-            }
-
-            if ($data["color"]) {
-                $color = $this->getEntityColorRepository()->find($data["color"]);
-                if ($color) {
-                    $formularioCinta->setColor($color);
+                if ($data["nombre"]) {
+                    $formularioCinta->setNombre($data["nombre"]);
                 }
-            }
 
-            if ($data["dibujo"]) {
-                $dibujo = $this->getEntityDibujoRepository()->find($data["dibujo"]);
-                if ($dibujo) {
-                    $formularioCinta->setDibujo($dibujo);
+                if ($data["color"]) {
+                    $color = $this->getEntityColorRepository()->find($data["color"]);
+                    if ($color) {
+                        $formularioCinta->setColor($color);
+                    }
                 }
-            }
 
-            if ($data["opcion"]) {
-                $opcion = $this->getEntityCantidadPrecioRepository()->find($data["opcion"]);
-                if ($opcion) {
-                    $formularioCinta->setOpcion($opcion);
+                if ($data["dibujo"]) {
+                    $dibujo = $this->getEntityDibujoRepository()->find($data["dibujo"]);
+                    if ($dibujo) {
+                        $formularioCinta->setDibujo($dibujo);
+                    }
                 }
-            }
-            try {
-                $this->getEm()->persist($formularioCinta);
-                $this->getEm()->flush();
-                $result["status"] = true;
-            } catch (\Exception $e) {
-                $result["msj"] = $e->getMessage();
-            }
 
+                if ($data["opcion"]) {
+                    $opcion = $this->getEntityCantidadPrecioRepository()->find($data["opcion"]);
+                    if ($opcion) {
+                        $formularioCinta->setOpcion($opcion);
+                    }
+                }
+                try {
+                    $this->getEm()->persist($formularioCinta);
+                    $this->getEm()->flush();
+                    $result["status"] = true;
+                } catch (\Exception $e) {
+                    $result["msj"] = $e->getMessage();
+                }
+
+            }
         }
 
         return new JsonModel($result);
@@ -112,25 +114,44 @@ class PedidoController extends AbstractActionController
     {
         $this->layout()->setTemplate('pedido/layout/layout');
 
-        $id = $this->params("id");
-        if ($id) {
-            $formularioCinta = $this->getEntityFormularioCintaRepository()->find($id);
+        $codigo = $this->params("codigo");
+        if ($codigo) {
+            $formularioCinta = $this->getEntityFormularioCintaRepository()->findOneByCodigo($codigo);
 
             $config = array();
-            $config["id"] = $id;
-            $config["cliente"] = ($formularioCinta->getCliente()) ? $formularioCinta->getCliente()->getNombre() : "";
-            $config["idMercadoLibre"] = $formularioCinta->getIdMercadoLibre();
-            $config["nombre"] = $formularioCinta->getNombre();
+            $config["pedido"]["id"] = $formularioCinta->getId();
+            $config["pedido"]["cliente"] = ($formularioCinta->getCliente()) ? $formularioCinta->getCliente()->getNombre() : "";
+            $config["pedido"]["idMercadoLibre"] = $formularioCinta->getIdMercadoLibre();
+            $config["pedido"]["nombre"] = $formularioCinta->getNombre();
+            $config["pedido"]["codigo"] = $formularioCinta->getCodigo();
+
             if ($formularioCinta->getColor()) {
-                $config["color"] = $formularioCinta->getColor()->getId();
+                $config["pedido"]["color"]["id"] = $formularioCinta->getColor()->getId();
+                $config["pedido"]["color"]["nombre"] = $formularioCinta->getColor()->getNombre();
+                $config["pedido"]["color"]["hexa"] = $formularioCinta->getColor()->getHexa();
+            }else{
+
+                $config["pedido"]["color"]["id"] = "";
+                $config["pedido"]["color"]["nombre"] = "";
+                $config["pedido"]["color"]["hexa"] = "";
             }
 
             if ($formularioCinta->getDibujo()) {
-                $config["dibujo"] = $formularioCinta->getDibujo()->getId();
+                $config["pedido"]["dibujo"]["id"] = $formularioCinta->getDibujo()->getId();
+                $config["pedido"]["dibujo"]["nombre"] = $formularioCinta->getDibujo()->getNombre();
+                $config["pedido"]["dibujo"]["src"] = $formularioCinta->getDibujo()->getImg_fp();
+            }else{
+                $config["pedido"]["dibujo"]["id"] = "";
+                $config["pedido"]["dibujo"]["nombre"] = "";
+                $config["pedido"]["dibujo"]["src"] = "";
+
             }
 
             if ($formularioCinta->getOpcion()) {
-                $config["opcion"] = $formularioCinta->getOpcion()->getId();
+                $config["pedido"]["opcion"]["id"] = $formularioCinta->getOpcion()->getId();
+            }else{
+                $config["pedido"]["opcion"]["id"] = "";
+
             }
 
             $dibujosCollection = $this->getEntityDibujoRepository()->findAll();

@@ -88,6 +88,12 @@ class FormularioCinta
     public $nombre = null;
 
 
+    /**
+     * @Annotation\Exclude()
+     * @ORM\Column(type="string", length=10, unique=true, nullable=false,
+     * name="codigo")
+     */
+    public $codigo = null;
 
     public function getId()
     {
@@ -187,6 +193,16 @@ class FormularioCinta
     public function setIdMercadoLibre($idMercadoLibre)
     {
         $this->idMercadoLibre = $idMercadoLibre;
+    }
+
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
     }
 
     public function __toString()

@@ -7,6 +7,7 @@ Vue.component('pedido', {
         cliente:'',
         idMercadoLibre: '',
         nombre: '',
+        codigo: '',
         dibujo: {
           id: '',
           nombre: '',
@@ -29,7 +30,7 @@ Vue.component('pedido', {
     encargar: function () {
       var that = this;
       $.ajax({
-        url: '/pedido/guardar/' + this.pedido.id,
+        url: '/pedido/guardar/' + this.pedido.codigo,
         method: 'post',
         data: {id: this.pedido.id, nombre: this.pedido.nombre, color: this.pedido.color.id, dibujo: this.pedido.dibujo.id, opcion: this.pedido.opcion.id}
       }).done(
@@ -64,11 +65,7 @@ Vue.component('pedido', {
     }
   },
   created: function () {
-    this.pedido.id = this.config.id;
-    this.pedido.nombre = this.config.nombre;
-    this.pedido.color.id = this.config.color;
-    this.pedido.dibujo.id = this.config.dibujo;
-    this.pedido.opcion.id = this.config.opcion;
+    this.pedido = this.config.pedido;
   },
   template: ' <div class="row">' +
   '<form class="form" role="form" v-on:submit.prevent="encargar">' +
