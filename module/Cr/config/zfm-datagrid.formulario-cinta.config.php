@@ -29,6 +29,11 @@ return [
                 'idMercadoLibre' => [
                     'priority' => 3
                 ],
+                'listo' => [
+                    'type' => 'boolean',
+                    'valueWhenTrue' => "<span class='text-success'>Listo</span>",
+                    'valueWhenFalse' => "<span class='text-danger'>Pendiente</span>"
+                ],
                 'dibujo' => [
                     'type' => 'relational',
                     'priority' => 4,
@@ -48,7 +53,8 @@ return [
                     'hidden' => true
                 ],
                 'opcion' => [
-                    'priority' => 7
+                    'priority' => 7,
+                    'hidden' => true
                 ],
             ],
             'crudConfig' => [

@@ -97,6 +97,7 @@ class PedidoController extends AbstractActionController
                     }
                 }
                 try {
+                    $formularioCinta->setListo(true);
                     $this->getEm()->persist($formularioCinta);
                     $this->getEm()->flush();
                     $result["status"] = true;
