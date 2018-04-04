@@ -96,7 +96,7 @@ Vue.component('pedido', {
   '<div class="clearfix"></div>' +
   '<div class="col-lg-6 col-xs-12">' +
   '<div class="form-group"> <label class="handleeFont fyellow"> 4° Elegi una opción:</label>' +
-  '<opcion :name="\'opcion\'" :clase="\'form-control\'" :opciones="config.opciones" v-on:changeopcion="changeopcion" ></opcion>' +
+  '<opcion :name="\'opcion\'" :clase="\'form-control\'" :opciones="config.opciones" v-on:changeopcion="changeopcion" :actual="pedido.opcion.id" ></opcion>' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +

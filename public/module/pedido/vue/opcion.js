@@ -1,5 +1,5 @@
 Vue.component('opcion', {
-    props: ['name','clase','opciones'],
+    props: ['name','clase','opciones', 'actual'],
     data: function () {
         return {
           value:'',
@@ -16,6 +16,7 @@ Vue.component('opcion', {
       }
     },
     created: function () {
+      this.value = this.actual;
     },
     computed: {
     },

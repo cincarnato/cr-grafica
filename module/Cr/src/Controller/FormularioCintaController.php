@@ -64,7 +64,7 @@ class FormularioCintaController extends AbstractActionController
       //  $hostName = $this->getRequest()->getHttpHost();
         $hostName = "http://".$_SERVER['SERVER_NAME'];
        // $hostName = (string) $this->url('home',array(),array('force_canonical' => true));
-        $this->grid->addExtraColumn("Link","<a target='_blank' href='".$hostName."/pedido/{{id}}'>".$hostName."/pedido/{{id}}</a>");
+        $this->grid->addExtraColumn("Link","<a target='_blank' href='".$hostName."/pedido/{{id}}'>".$hostName."/pedido/{{id}}</a>","right");
         $this->grid->prepare();
         return array("grid" => $this->grid);
     }

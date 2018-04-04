@@ -95,11 +95,11 @@ class PedidoController extends AbstractActionController
                     $formularioCinta->setOpcion($opcion);
                 }
             }
-            try{
+            try {
                 $this->getEm()->persist($formularioCinta);
                 $this->getEm()->flush();
                 $result["status"] = true;
-            }catch (\Exception $e){
+            } catch (\Exception $e) {
                 $result["msj"] = $e->getMessage();
             }
 
@@ -121,9 +121,17 @@ class PedidoController extends AbstractActionController
             $config["cliente"] = ($formularioCinta->getCliente()) ? $formularioCinta->getCliente()->getNombre() : "";
             $config["idMercadoLibre"] = $formularioCinta->getIdMercadoLibre();
             $config["nombre"] = $formularioCinta->getNombre();
-            $config["color"] = $formularioCinta->getColor()->getId();
-            $config["dibujo"] = $formularioCinta->getDibujo()->getId();
-            $config["opcion"] = $formularioCinta->getOpcion()->getId();
+            if ($formularioCinta->getColor()) {
+                $config["color"] = $formularioCinta->getColor()->getId();
+            }
+
+            if ($formularioCinta->getDibujo()) {
+                $config["dibujo"] = $formularioCinta->getDibujo()->getId();
+            }
+
+            if ($formularioCinta->getOpcion()) {
+                $config["opcion"] = $formularioCinta->getOpcion()->getId();
+            }
 
             $dibujosCollection = $this->getEntityDibujoRepository()->findAll();
             foreach ($dibujosCollection as $dibujo) {
@@ -151,7 +159,6 @@ class PedidoController extends AbstractActionController
                 $d["precio"] = $cp->getPrecio();
                 $config["opciones"][] = $d;
             }
-
 
 
             return ["config" => $config];
