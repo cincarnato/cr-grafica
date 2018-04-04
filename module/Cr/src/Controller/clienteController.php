@@ -5,7 +5,7 @@ namespace Cr\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 
 /**
- * FormularioCintaController
+ * clienteController
  *
  *
  *
@@ -13,10 +13,10 @@ use Zend\Mvc\Controller\AbstractActionController;
  * @license
  * @link
  */
-class FormularioCintaController extends AbstractActionController
+class clienteController extends AbstractActionController
 {
 
-    const ENTITY = '\\Cr\\Entity\\FormularioCinta';
+    const ENTITY = '\\Cr\\Entity\\Cliente';
 
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -61,10 +61,6 @@ class FormularioCintaController extends AbstractActionController
 
     public function gridAction()
     {
-      //  $hostName = $this->getRequest()->getHttpHost();
-        $hostName = "http://".$_SERVER['SERVER_NAME'];
-       // $hostName = (string) $this->url('home',array(),array('force_canonical' => true));
-        $this->grid->addExtraColumn("Link","<a target='_blank' href='".$hostName."/pedido/{{id}}'>".$hostName."/pedido/{{id}}</a>");
         $this->grid->prepare();
         return array("grid" => $this->grid);
     }

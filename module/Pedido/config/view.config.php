@@ -6,4 +6,7 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    'strategies' => array(
+        'ViewJsonStrategy',
+    ),
 ];

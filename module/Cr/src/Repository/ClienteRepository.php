@@ -5,23 +5,23 @@ namespace Cr\Repository;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * FormularioCintaRepository
- * 
- * 
- * 
+ * ClienteRepository
+ *
+ *
+ *
  * @author
  * @license
  * @link
  */
-class FormularioCintaRepository extends EntityRepository
+class ClienteRepository extends EntityRepository
 {
 
-    public function save(\Cr\Entity\FormularioCinta $entity)
+    public function save(\Cr\Entity\Cliente $entity)
     {
         $this->getEntityManager()->persist($entity); $this->getEntityManager()->flush();
     }
 
-    public function remove(\Cr\Entity\FormularioCinta $entity)
+    public function remove(\Cr\Entity\Cliente $entity)
     {
         $this->getEntityManager()->remove($entity); $this->getEntityManager()->flush();
     }

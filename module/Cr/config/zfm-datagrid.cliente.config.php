@@ -2,12 +2,12 @@
 
 return [
     'zf-metal-datagrid.custom' => [
-        'cr-entity-formulariocinta' => [
-            'gridId' => 'zfmdg_FormularioCinta',
+        'cr-entity-cliente' => [
+            'gridId' => 'zfmdg_Cliente',
             'sourceConfig' => [
                 'type' => 'doctrine',
                 'doctrineOptions' => [
-                    'entityName' => \Cr\Entity\FormularioCinta::class,
+                    'entityName' => \Cr\Entity\Cliente::class,
                     'entityManager' => 'doctrine.entitymanager.orm_default',
                 ],
             ],
@@ -21,30 +21,16 @@ return [
             'columnsConfig' => [
                 'id' => [
                     'displayName' => 'ID',
-                    'priority' => 1
-                ],
-                'cliente' => [
-                    'priority' => 2
-                ],
-                'idMercadoLibre' => [
-                    'priority' => 3
-                ],
-                'dibujo' => [
-                    'type' => 'relational',
-                    'priority' => 4,
-                    'hidden' => true
-                ],
-                'color' => [
-                    'type' => 'relational',
-                    'priority' => 5,
-                    'hidden' => true
+                    'priority' => 0
                 ],
                 'nombre' => [
-                    'priority' => 6,
-                    'hidden' => true
+                    'priority' => 1
                 ],
-                'opcion' => [
-                    'priority' => 7
+                'email' => [
+                    'priority' => 2
+                ],
+                'telefono' => [
+                    'priority' => 3
                 ],
             ],
             'crudConfig' => [
@@ -52,23 +38,23 @@ return [
                 'displayName' => null,
                 'add' => [
                     'enable' => true,
-                    'class' => 'material-icons text-primary cursor-pointer',
-                    'value' => 'add',
+                    'class' => ' glyphicon glyphicon-plus cursor-pointer',
+                    'value' => '',
                 ],
                 'edit' => [
                     'enable' => true,
-                    'class' => 'material-icons text-primary cursor-pointer',
-                    'value' => 'mode_edit'
+                    'class' => ' glyphicon glyphicon-edit cursor-pointer',
+                    'value' => '',
                 ],
                 'del' => [
                     'enable' => true,
-                    'class' => 'material-icons text-danger cursor-pointer',
-                    'value' => 'delete_sweep'
+                    'class' => ' glyphicon glyphicon-trash cursor-pointer',
+                    'value' => '',
                 ],
                 'view' => [
                     'enable' => true,
-                    'class' => 'material-icons text-success cursor-pointer',
-                    'value' => 'view_list',
+                    'class' => ' glyphicon glyphicon-list-alt cursor-pointer',
+                    'value' => '',
                 ],
             ],
         ],

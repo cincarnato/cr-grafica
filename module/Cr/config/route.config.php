@@ -92,7 +92,7 @@ return [
                         'options' => [
                             'route' => '/medida',
                             'defaults' => [
-                                'controller' => \Cr\Controller\MedidaController::CLASS,
+                                'controller' => 'Cr\\Controller\\MedidaController',
                                 'action' => 'grid',
                             ],
                         ],
@@ -103,7 +103,7 @@ return [
                                 'options' => [
                                     'route' => '/grid',
                                     'defaults' => [
-                                        'controller' => \Cr\Controller\MedidaController::CLASS,
+                                        'controller' => 'Cr\\Controller\\MedidaController',
                                         'action' => 'grid',
                                     ],
                                 ],
@@ -152,6 +152,30 @@ return [
                                     'route' => '/grid',
                                     'defaults' => [
                                         'controller' => \Cr\Controller\CantidadPrecioController::CLASS,
+                                        'action' => 'grid',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                    'cliente' => [
+                        'type' => 'Literal',
+                        'mayTerminate' => false,
+                        'options' => [
+                            'route' => '/cliente',
+                            'defaults' => [
+                                'controller' => \Cr\Controller\clienteController::CLASS,
+                                'action' => 'grid',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'Grid' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/grid',
+                                    'defaults' => [
+                                        'controller' => \Cr\Controller\clienteController::CLASS,
                                         'action' => 'grid',
                                     ],
                                 ],

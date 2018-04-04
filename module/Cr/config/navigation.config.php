@@ -25,7 +25,7 @@ return [
                         'route' => 'Cr/Color/Grid',
                     ],
                     [
-                        'label' => 'Opción & Precio',
+                        'label' => 'Cantidad & Precio',
                         'detail' => '',
                         'icon' => 'attach_money',
                         'permission' => 'general-admin',
@@ -34,11 +34,18 @@ return [
                 ],
             ],
             [
-                'label' => 'Formularios',
+                'label' => 'Formulario Cinta',
                 'detail' => '',
                 'icon' => 'reorder',
                 'permission' => 'general-admin',
                 'route' => 'Cr/FormularioCinta/Grid',
+            ],
+            [
+                'label' => 'Clientes',
+                'detail' => '',
+                'icon' => 'assignment_ind',
+                'permission' => 'general-admin',
+                'route' => 'Cr/cliente/Grid',
             ],
         ],
     ],

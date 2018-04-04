@@ -32,6 +32,25 @@ class FormularioCinta
      */
     public $id = null;
 
+
+    /**
+     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
+     * @Annotation\Options({"label":"cliente","empty_option": "",
+     * "target_class":"\Cr\Entity\Cliente", "description":""})
+     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Cliente")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id", nullable=true)
+     */
+    public $cliente = null;
+
+    /**
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Attributes({"type":"text"})
+     * @Annotation\Options({"label":"ID Mercado Libre", "description":"", "addon":""})
+     * @ORM\Column(type="string", length=50, unique=false, nullable=true,
+     * name="id_mercado_libre")
+     */
+    public $idMercadoLibre = null;
+
     /**
      * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
      * @Annotation\Options({"label":"dibujo","empty_option": "",
@@ -68,23 +87,7 @@ class FormularioCinta
      */
     public $nombre = null;
 
-    /**
-     * @Annotation\Type("Zend\Form\Element\Text")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"email", "description":"", "addon":""})
-     * @ORM\Column(type="string", length=100, unique=false, nullable=true,
-     * name="email")
-     */
-    public $email = null;
 
-    /**
-     * @Annotation\Type("Zend\Form\Element\Text")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"telefono", "description":"", "addon":""})
-     * @ORM\Column(type="string", length=50, unique=false, nullable=true,
-     * name="telefono")
-     */
-    public $telefono = null;
 
     public function getId()
     {
@@ -156,9 +159,39 @@ class FormularioCinta
         $this->telefono = $telefono;
     }
 
+    public function getCantidad()
+    {
+        return $this->cantidad;
+    }
+
+    public function setCantidad($cantidad)
+    {
+        $this->cantidad = $cantidad;
+    }
+
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    public function setCliente($cliente)
+    {
+        $this->cliente = $cliente;
+    }
+
+    public function getIdMercadoLibre()
+    {
+        return $this->idMercadoLibre;
+    }
+
+    public function setIdMercadoLibre($idMercadoLibre)
+    {
+        $this->idMercadoLibre = $idMercadoLibre;
+    }
+
     public function __toString()
     {
-        return  $this->nombre;
+        return (string) $this->nombre;
     }
 
 

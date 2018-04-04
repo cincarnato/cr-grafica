@@ -4,13 +4,24 @@ return [
     'router' => [
         'routes' => [
             'Pedido' => [
-                'type' => 'Literal',
+                'type' => 'Segment',
                 'mayTerminate' => true,
                 'options' => [
-                    'route' => '/pedido',
+                    'route' => '/pedido/:id',
                     'defaults' => [
                         'controller' => \Pedido\Controller\PedidoController::CLASS,
                         'action' => 'pedido',
+                    ],
+                ],
+            ],
+            'PedidoGuardar' => [
+                'type' => 'Segment',
+                'mayTerminate' => true,
+                'options' => [
+                    'route' => '/pedido/guardar/:id',
+                    'defaults' => [
+                        'controller' => \Pedido\Controller\PedidoController::CLASS,
+                        'action' => 'save',
                     ],
                 ],
             ],

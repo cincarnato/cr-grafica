@@ -1,16 +1,25 @@
 .backpedido{
     background-image:url('/img/pedido/fondo.gif');
-    background-repeat:no-repeat;
+    background-repeat: repeat-x;
     background-size: cover;
     background-position:center;
-    min-height: 500px;
+    min-height: 600px;
+    overflow: hidden;
 }
-
 
 .handleeFont{
     font-family: 'Handlee', cursive;
+    font-size: 3.5vh;
+}
+
+.labelPreview{
+    font-size: 5.5vh;
+}
+
+.fyellow{
     color:yellow;
 }
+
 
 .bwhite{
     background: #FFFFFF;
@@ -19,4 +28,21 @@
 
 .byellow{
     background: yellow;
+}
+
+.m5{
+    margin: 5px;
+}
+
+.m10{
+    margin: 10px;
+}
+
+.pt10{
+    padding-top: 10px;
+}
+
+
+.pt20{
+    padding-top: 20px;
 }
