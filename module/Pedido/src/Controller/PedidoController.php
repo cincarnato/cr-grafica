@@ -121,6 +121,9 @@ class PedidoController extends AbstractActionController
             $config["cliente"] = ($formularioCinta->getCliente()) ? $formularioCinta->getCliente()->getNombre() : "";
             $config["idMercadoLibre"] = $formularioCinta->getIdMercadoLibre();
             $config["nombre"] = $formularioCinta->getNombre();
+            $config["color"] = $formularioCinta->getColor()->getId();
+            $config["dibujo"] = $formularioCinta->getDibujo()->getId();
+            $config["opcion"] = $formularioCinta->getOpcion()->getId();
 
             $dibujosCollection = $this->getEntityDibujoRepository()->findAll();
             foreach ($dibujosCollection as $dibujo) {

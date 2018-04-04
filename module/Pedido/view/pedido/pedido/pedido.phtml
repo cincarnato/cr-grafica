@@ -4,6 +4,24 @@
     <pedido :config='<?php echo json_encode($this->config); ?>'></pedido>
 </div>
 
+<div class="modal" tabindex="-100" role="dialog"
+     id="mresultado"
+     aria-labelledby="mresultado" data-keyword="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div id="resultado">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <?php

@@ -36,6 +36,7 @@ Vue.component('pedido', {
         function (data) {
           console.log(data);
         that.saveOk(data);
+
         }
       ).fail(
         function (data) {
@@ -45,20 +46,29 @@ Vue.component('pedido', {
       return false;
     },
     saveOk: function(){
-
+      $('#resultado').html("Encargo guardado satisfactoriamente.");
+      $('#mresultado').modal('show')
     },
     saveFail: function(){
-
+      $('#esultado').html("Error al guardar.");
+      $('#mresultado').modal('show')
     },
     changecolor: function (data) {
       this.pedido.color = data;
     },
     changedibujo: function (data) {
       this.pedido.dibujo = data;
+    },
+    changeopcion: function (data) {
+      this.pedido.opcion.id = data;
     }
   },
   created: function () {
     this.pedido.id = this.config.id;
+    this.pedido.nombre = this.config.nombre;
+    this.pedido.color.id = this.config.color;
+    this.pedido.dibujo.id = this.config.dibujo;
+    this.pedido.opcion.id = this.config.opcion;
   },
   template: ' <div class="row">' +
   '<form class="form" role="form" v-on:submit.prevent="encargar">' +
@@ -86,7 +96,7 @@ Vue.component('pedido', {
   '<div class="clearfix"></div>' +
   '<div class="col-lg-6 col-xs-12">' +
   '<div class="form-group"> <label class="handleeFont fyellow"> 4° Elegi una opción:</label>' +
-  '<opcion :name="\'opcion\'" :clase="\'form-control\'" :opciones="config.opciones" ></opcion>' +
+  '<opcion :name="\'opcion\'" :clase="\'form-control\'" :opciones="config.opciones" v-on:changeopcion="changeopcion" ></opcion>' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +

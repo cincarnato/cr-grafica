@@ -84,7 +84,7 @@ class CantidadPrecio
 
     public function __toString()
     {
-        return  (string) $this->opcion." $".$this->precio;
+        return  (string) $this->opcion." - $".$this->precio;
     }
 
 
