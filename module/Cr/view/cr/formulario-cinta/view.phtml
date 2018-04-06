@@ -48,7 +48,7 @@
             <div class="col-lg-3 col-xs-3 text-center"">
                 <img src="<?php echo ($fc->getDibujo())?$fc->getDibujo()->getImg_fp():""; ?>" class="img-responsive" style="widht:80px;height:80px;" />
                 </div>
-            <div class="col-lg-9 col-xs-9 text-center" style="background-color:<?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getHexa():'#FFFFFF'; ?>">
+            <div class="col-lg-9 col-xs-9 text-center" style="height:80px;background-color:<?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getHexa():'#FFFFFF'; ?>">
                 <label class="handleeFont labelPreview pt20" style="color:<?php echo ($fc->getColor())?$fc->getColor()->getHexa():''; ?> ">
                     <?php echo $fc->getNombre(); ?>
                 </label>

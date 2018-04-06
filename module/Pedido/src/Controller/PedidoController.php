@@ -132,6 +132,7 @@ class PedidoController extends AbstractActionController
             $config["pedido"]["idMercadoLibre"] = $formularioCinta->getIdMercadoLibre();
             $config["pedido"]["nombre"] = $formularioCinta->getNombre();
             $config["pedido"]["codigo"] = $formularioCinta->getCodigo();
+            $config["pedido"]["listo"] = $formularioCinta->getListo();
 
             if ($formularioCinta->getColor()) {
                 $config["pedido"]["color"]["id"] = $formularioCinta->getColor()->getId();
@@ -145,9 +146,9 @@ class PedidoController extends AbstractActionController
             }
 
             if ($formularioCinta->getColorFondo()) {
-                $config["pedido"]["colorFondo"]["id"] = $formularioCinta->colorFondo()->getId();
-                $config["pedido"]["colorFondo"]["nombre"] = $formularioCinta->colorFondo()->getNombre();
-                $config["pedido"]["colorFondo"]["hexa"] = $formularioCinta->colorFondo()->getHexa();
+                $config["pedido"]["colorFondo"]["id"] = $formularioCinta->getColorFondo()->getId();
+                $config["pedido"]["colorFondo"]["nombre"] = $formularioCinta->getColorFondo()->getNombre();
+                $config["pedido"]["colorFondo"]["hexa"] = $formularioCinta->getColorFondo()->getHexa();
             }else{
 
                 $config["pedido"]["colorFondo"]["id"] = "";

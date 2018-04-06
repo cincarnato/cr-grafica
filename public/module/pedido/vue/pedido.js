@@ -4,6 +4,7 @@ Vue.component('pedido', {
     return {
       pedido: {
         id: '',
+        listo: false,
         cliente:'',
         idMercadoLibre: '',
         nombre: '',
@@ -62,12 +63,13 @@ Vue.component('pedido', {
       }
       return false;
     },
-    saveOk: function(){
-      $('#resultado').html("Encargo guardado satisfactoriamente.");
+    saveOk: function () {
+      this.pedido.listo = true;
+      $('#resultado').html("<div class='alert alert-success'>Encargo guardado satisfactoriamente.</div>");
       $('#mresultado').modal('show')
     },
-    saveFail: function(){
-      $('#esultado').html("Error al guardar.");
+    saveFail: function () {
+      $('#resultado').html("<div class='alert alert-danger'>Error al guardar.</div>");
       $('#mresultado').modal('show')
     },
     faltanDatos: function () {
@@ -91,7 +93,7 @@ Vue.component('pedido', {
     this.pedido = this.config.pedido;
   },
   template: ' <div class="row">' +
-  '<form class="form" role="form" v-on:submit.prevent="encargar">' +
+  '<form v-if="!pedido.listo" class="form" role="form" v-on:submit.prevent="encargar">' +
   '<div class="col-lg-12"> ' +
   '<div class="form-group">' +
   '<label class="handleeFont fyellow">1° Elegi un dibujo:</label>' +
@@ -104,7 +106,7 @@ Vue.component('pedido', {
   '<div class="form-group"> ' +
   '<label class="handleeFont fyellow">2° Elegi un color de letra:</label>' +
   '<div class="clearfix"></div>' +
-  '<color v-for="color, index in config.colores" :key="color.id" :entity="color" v-on:changecolor="changecolor" :checked="color.id == pedido.color.id"></color>' +
+  '<color v-for="color, index in config.colores" :name="color" :key="color.id" :entity="color" v-on:changecolor="changecolor" :checked="color.id == pedido.color.id"></color>' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +
@@ -112,7 +114,7 @@ Vue.component('pedido', {
   '<div class="form-group"> ' +
   '<label class="handleeFont fyellow">2° Elegi un color de fondo:</label>' +
   '<div class="clearfix"></div>' +
-  '<color v-for="color, index in config.colores" :key="color.id" :entity="color" v-on:changecolor="changecolorfondo" :checked="color.id == pedido.colorfondo.id"></color>' +
+  '<color v-for="color, index in config.colores" :name="colorFondo" :key="color.id" :entity="color" v-on:changecolor="changecolorfondo" :checked="color.id == pedido.colorFondo.id"></color>' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +
@@ -130,7 +132,7 @@ Vue.component('pedido', {
   '<div class="clearfix"></div>' +
   '<div class="col-lg-6 col-xs-12">' +
   '<label class="handleeFont fyellow">Vista Previa:</label>' +
-  '<preview :dibujo="pedido.dibujo" :color="pedido.color.hexa" :nombre="pedido.nombre"></preview>' +
+  '<preview :dibujo="pedido.dibujo" :color="pedido.color.hexa" :colorFondo="pedido.colorFondo.hexa" :nombre="pedido.nombre"></preview>' +
   '</div>' +
   '<div class="clearfix"></div>' +
   '<div class="col-lg-6 col-xs-12">' +
@@ -139,5 +141,12 @@ Vue.component('pedido', {
   '</div>' +
   '</div>' +
   '</form>' +
+  '<div v-else>' +
+  '<div class="clearfix"></div>' +
+  '<div class="col-lg-6 col-xs-12">' +
+  '<label class="handleeFont fyellow">Pedido Encargado:</label>' +
+  '<preview :dibujo="pedido.dibujo" :color="pedido.color.hexa" :colorFondo="pedido.colorFondo.hexa" :nombre="pedido.nombre"></preview>' +
+  '</div>' +
+  '</div>' +
   '</div>'
 })

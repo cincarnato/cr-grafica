@@ -1,5 +1,5 @@
 Vue.component('color', {
-    props: ['entity','checked'],
+    props: ['entity','checked','name'],
     data: function () {
         return {
             value:'',
@@ -30,6 +30,6 @@ Vue.component('color', {
     '<div>' +
     '<div :style="cstyle" class="img-responsive" @click="changeColor"  />' +
     '</div>' +
-    '<input type="radio" name="color" :value="color.id" @click="changeColor" :checked="checked" />' +
+    '<input type="radio" :name="name" :value="color.id" @click="changeColor" :checked="checked" />' +
     '</div>'
 })

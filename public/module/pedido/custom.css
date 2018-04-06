@@ -8,16 +8,17 @@
     }
 
     .pedidoFooter {
-        background-image: url('/img/pedido/footer2.gif');
+        background-image: url('/img/pedido/footermax.png');
         background-position: center;
         width: 1059px;
-        height: 238px;
+        height: 231px;
         margin: 0 auto;
     }
 
     .pedidoBody {
-        background-image: url('/img/pedido/fondo.gif');
+        background-image: url('/img/pedido/patron/b6.png');
         background-position: center;
+        background-repeat: repeat;
         margin: 0 auto;
         width: 1059px;
         min-height: 600px;
@@ -27,8 +28,8 @@
 
     .pedidoBack {
         background: #1B1B1B;
-        #background-image: url('/img/pedido/patron1.jpg');
-        #background-repeat: repeat;
+        background-image: url('/img/pedido/patron/b1.png');
+        background-repeat: repeat;
     }
 }
 
