@@ -18,6 +18,11 @@ Vue.component('pedido', {
           nombre: '',
           hexa: ''
         },
+        colorFondo: {
+          id: '',
+          nombre: '',
+          hexa: ''
+        },
         opcion: {
           id: '',
           opcion: '',
@@ -28,22 +33,33 @@ Vue.component('pedido', {
   },
   methods: {
     encargar: function () {
-      var that = this;
-      $.ajax({
-        url: '/pedido/guardar/' + this.pedido.codigo,
-        method: 'post',
-        data: {id: this.pedido.id, nombre: this.pedido.nombre, color: this.pedido.color.id, dibujo: this.pedido.dibujo.id, opcion: this.pedido.opcion.id}
-      }).done(
-        function (data) {
-          console.log(data);
-        that.saveOk(data);
+      if (this.pedido.nombre && this.pedido.color.id && this.pedido.colorFondo.id && this.pedido.dibujo.id && this.pedido.opcion.id) {
+        var that = this;
+        $.ajax({
+          url: '/pedido/guardar/' + this.pedido.codigo,
+          method: 'post',
+          data: {
+            id: this.pedido.id,
+            nombre: this.pedido.nombre,
+            color: this.pedido.color.id,
+            colorFondo: this.pedido.colorFondo.id,
+            dibujo: this.pedido.dibujo.id,
+            opcion: this.pedido.opcion.id
+          }
+        }).done(
+          function (data) {
+            console.log(data);
+            that.saveOk(data);
 
-        }
-      ).fail(
-        function (data) {
-          that.saveFail(data);
-        }
-      );
+          }
+        ).fail(
+          function (data) {
+            that.saveFail(data);
+          }
+        );
+      }else{
+        this.faltanDatos();
+      }
       return false;
     },
     saveOk: function(){
@@ -54,8 +70,15 @@ Vue.component('pedido', {
       $('#esultado').html("Error al guardar.");
       $('#mresultado').modal('show')
     },
+    faltanDatos: function () {
+      $('#resultado').html("<div class='alert alert-warning'>Faltan datos. Debe seleccionar dibujo, color, nombre y opcion.</div>");
+      $('#mresultado').modal('show')
+    },
     changecolor: function (data) {
       this.pedido.color = data;
+    },
+    changecolorfondo: function (data) {
+      this.pedido.colorFondo = data;
     },
     changedibujo: function (data) {
       this.pedido.dibujo = data;
@@ -79,9 +102,17 @@ Vue.component('pedido', {
   '<div class="clearfix"></div>' +
   '<div class="col-lg-12 ">' +
   '<div class="form-group"> ' +
-  '<label class="handleeFont fyellow">2° Elegi un color:</label>' +
+  '<label class="handleeFont fyellow">2° Elegi un color de letra:</label>' +
   '<div class="clearfix"></div>' +
   '<color v-for="color, index in config.colores" :key="color.id" :entity="color" v-on:changecolor="changecolor" :checked="color.id == pedido.color.id"></color>' +
+  '</div>' +
+  '</div>' +
+  '<div class="clearfix"></div>' +
+  '<div class="col-lg-12 ">' +
+  '<div class="form-group"> ' +
+  '<label class="handleeFont fyellow">2° Elegi un color de fondo:</label>' +
+  '<div class="clearfix"></div>' +
+  '<color v-for="color, index in config.colores" :key="color.id" :entity="color" v-on:changecolor="changecolorfondo" :checked="color.id == pedido.colorfondo.id"></color>' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +

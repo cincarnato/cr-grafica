@@ -59,6 +59,13 @@ class FormularioCintaController extends AbstractActionController
         $this->grid = $grid;
     }
 
+    public function viewAction()
+    {
+        $id = $this->params("id");
+        $formularioCinta = $this->getEntityRepository()->find($id);
+        return ["fc" => $formularioCinta];
+    }
+
     public function gridAction()
     {
         $hostName = "http://" . $_SERVER['SERVER_NAME'];

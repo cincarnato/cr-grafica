@@ -83,6 +83,13 @@ class PedidoController extends AbstractActionController
                     }
                 }
 
+                if ($data["colorFondo"]) {
+                    $colorFondo = $this->getEntityColorRepository()->find($data["colorFondo"]);
+                    if ($colorFondo) {
+                        $formularioCinta->setColorFondo($colorFondo);
+                    }
+                }
+
                 if ($data["dibujo"]) {
                     $dibujo = $this->getEntityDibujoRepository()->find($data["dibujo"]);
                     if ($dibujo) {
@@ -97,6 +104,7 @@ class PedidoController extends AbstractActionController
                     }
                 }
                 try {
+                    $formularioCinta->setListo(true);
                     $this->getEm()->persist($formularioCinta);
                     $this->getEm()->flush();
                     $result["status"] = true;
@@ -134,6 +142,17 @@ class PedidoController extends AbstractActionController
                 $config["pedido"]["color"]["id"] = "";
                 $config["pedido"]["color"]["nombre"] = "";
                 $config["pedido"]["color"]["hexa"] = "";
+            }
+
+            if ($formularioCinta->getColorFondo()) {
+                $config["pedido"]["colorFondo"]["id"] = $formularioCinta->colorFondo()->getId();
+                $config["pedido"]["colorFondo"]["nombre"] = $formularioCinta->colorFondo()->getNombre();
+                $config["pedido"]["colorFondo"]["hexa"] = $formularioCinta->colorFondo()->getHexa();
+            }else{
+
+                $config["pedido"]["colorFondo"]["id"] = "";
+                $config["pedido"]["colorFondo"]["nombre"] = "";
+                $config["pedido"]["colorFondo"]["hexa"] = "";
             }
 
             if ($formularioCinta->getDibujo()) {

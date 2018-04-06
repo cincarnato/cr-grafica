@@ -39,6 +39,11 @@ return [
                     'priority' => 5,
                     'hidden' => true
                 ],
+                'colorFondo' => [
+                    'type' => 'relational',
+                    'priority' => 5,
+                    'hidden' => true
+                ],
                 'nombre' => [
                     'priority' => 6,
                     'hidden' => true
@@ -48,8 +53,14 @@ return [
                     'hidden' => true
                 ],
                 'opcion' => [
-                    'priority' => 7
+                    'priority' => 7,
+                    'hidden' => true
                 ],
+                'listo' =>[
+                    'type' => 'boolean',
+                    'valueWhenTrue' => '<span class="text-success">Listo</span>',
+                    'valueWhenFalse' => '<span class="text-danger">Pendiente</span>'
+                ]
             ],
             'crudConfig' => [
                 'enable' => true,
@@ -71,6 +82,7 @@ return [
                 ],
                 'view' => [
                     'enable' => true,
+                    'action' => 'href="/cr/formulario-cinta/view/{{id}}"',
                     'class' => 'material-icons text-success cursor-pointer',
                     'value' => 'view_list',
                 ],

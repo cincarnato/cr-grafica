@@ -1,0 +1,63 @@
+<a class="btn btn-default" href="/cr/formulario-cinta/grid">Volver al Listado</a>
+<table class="table table-striped table-bordered">
+
+    <tr>
+    <th>ID</th><td><?php echo $fc->getId(); ?></td>
+    </tr>
+
+    <tr>
+        <th>Cliente</th><td><?php echo $fc->getCliente(); ?></td>
+    </tr>
+
+    <tr>
+        <th>Id Mercado Libre</th><td><?php echo $fc->getIdMercadoLibre(); ?></td>
+    </tr>
+
+    <tr>
+        <th>Codigo</th><td><?php echo $fc->getCodigo(); ?></td>
+    </tr>
+
+
+    <tr>
+        <th>Listo</th><td><?php echo ($fc->getListo())?"Listo":"Pendiente"; ?></td>
+
+    <tr>
+        <th>Nombre</th><td><?php echo ($fc->getNombre()); ?></td>
+    </tr>
+
+
+    <tr>
+        <th>Dibujo</th><td><?php echo ($fc->getDibujo())?$fc->getDibujo()->getNombre():"-"; ?>(<?php echo ($fc->getDibujo())?$fc->getDibujo()->getImg():"-"; ?>)</td>
+    </tr>
+
+    <tr>
+        <th>Color letra</th><td><?php echo ( $fc->getColor())?$fc->getColor()->getNombre():"-"; ?> (<?php echo ($fc->getColor())?$fc->getColor()->getHexa():"-"; ?>) </td>
+    </tr>
+
+    <tr>
+        <th>Color fondo</th><td><?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getNombre():"-"; ?> (<?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getHexa():"-"; ?>) </td>
+    </tr>
+
+
+</table>
+
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+        <div class="bwhite">
+            <div class="col-lg-3 col-xs-3 text-center"">
+                <img src="<?php echo ($fc->getDibujo())?$fc->getDibujo()->getImg_fp():""; ?>" class="img-responsive" style="widht:80px;height:80px;" />
+                </div>
+            <div class="col-lg-9 col-xs-9 text-center" style="background-color:<?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getHexa():'#FFFFFF'; ?>">
+                <label class="handleeFont labelPreview pt20" style="color:<?php echo ($fc->getColor())?$fc->getColor()->getHexa():''; ?> ">
+                    <?php echo $fc->getNombre(); ?>
+                </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<?php
+echo $this->headLink()->appendStylesheet($this->basePath() . '/module/pedido/custom.css');
+?>

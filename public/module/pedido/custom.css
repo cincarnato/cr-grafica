@@ -1,48 +1,101 @@
-.backpedido{
-    background-image:url('/img/pedido/fondo.gif');
+@media (min-width: 1059px) {
+    .pedidoHead {
+        background-image: url('/img/pedido/head.gif');
+        background-position: center;
+        width: 1059px;
+        height: 138px;
+        margin: 0 auto;
+    }
+
+    .pedidoFooter {
+        background-image: url('/img/pedido/footer2.gif');
+        background-position: center;
+        width: 1059px;
+        height: 238px;
+        margin: 0 auto;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/fondo.gif');
+        background-position: center;
+        margin: 0 auto;
+        width: 1059px;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+    .pedidoBack {
+        background: #1B1B1B;
+        #background-image: url('/img/pedido/patron1.jpg');
+        #background-repeat: repeat;
+    }
+}
+
+@media (max-width: 1058px) {
+
+    .pedidoHead {
+        background-image: url('/img/pedido/head.gif');
+        background-repeat:no-repeat;
+        background-size:100% 100%;
+        background-position:center;
+        height: 100px;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/fondo.gif');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: center;
+        min-height: 600px;
+        overflow: hidden;
+    }
+
+}
+
+.backpedido {
+    background-image: url('/img/pedido/fondo.gif');
     background-repeat: repeat-x;
     background-size: cover;
-    background-position:center;
+    background-position: center;
     min-height: 600px;
     overflow: hidden;
 }
 
-.handleeFont{
+.handleeFont {
     font-family: 'Handlee', cursive;
     font-size: 3.5vh;
 }
 
-.labelPreview{
+.labelPreview {
     font-size: 5.5vh;
 }
 
-.fyellow{
-    color:yellow;
+.fyellow {
+    color: yellow;
 }
 
-
-.bwhite{
+.bwhite {
     background: #FFFFFF;
     overflow: hidden;
 }
 
-.byellow{
+.byellow {
     background: yellow;
 }
 
-.m5{
+.m5 {
     margin: 5px;
 }
 
-.m10{
+.m10 {
     margin: 10px;
 }
 
-.pt10{
+.pt10 {
     padding-top: 10px;
 }
 
-
-.pt20{
+.pt20 {
     padding-top: 20px;
 }

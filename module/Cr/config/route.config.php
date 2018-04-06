@@ -60,7 +60,7 @@ return [
                                     ],
                                 ],
                             ],
-                        ],
+                        ]
                     ],
                     'Color' => [
                         'type' => 'Literal',
@@ -80,30 +80,6 @@ return [
                                     'route' => '/grid',
                                     'defaults' => [
                                         'controller' => \Cr\Controller\ColorController::CLASS,
-                                        'action' => 'grid',
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    'Medida' => [
-                        'type' => 'Literal',
-                        'mayTerminate' => false,
-                        'options' => [
-                            'route' => '/medida',
-                            'defaults' => [
-                                'controller' => 'Cr\\Controller\\MedidaController',
-                                'action' => 'grid',
-                            ],
-                        ],
-                        'child_routes' => [
-                            'Grid' => [
-                                'type' => 'Segment',
-                                'mayTerminate' => true,
-                                'options' => [
-                                    'route' => '/grid',
-                                    'defaults' => [
-                                        'controller' => 'Cr\\Controller\\MedidaController',
                                         'action' => 'grid',
                                     ],
                                 ],
@@ -132,6 +108,18 @@ return [
                                     ],
                                 ],
                             ],
+                            'View' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/view/:id',
+                                    'defaults' => [
+                                        'controller' => \Cr\Controller\FormularioCintaController::CLASS,
+                                        'action' => 'view',
+                                    ],
+                                ],
+                            ],
+
                         ],
                     ],
                     'CantidadPrecio' => [

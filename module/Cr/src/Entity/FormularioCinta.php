@@ -32,6 +32,33 @@ class FormularioCinta
      */
     public $id = null;
 
+    /**
+     * @Annotation\Exclude()
+     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Dibujo")
+     * @ORM\JoinColumn(name="dibujo_id", referencedColumnName="id", nullable=true)
+     */
+    public $dibujo = null;
+
+    /**
+     * @Annotation\Exclude()
+     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Color")
+     * @ORM\JoinColumn(name="color_id", referencedColumnName="id", nullable=true)
+     */
+    public $color = null;
+
+    /**
+     * @Annotation\Exclude()
+     * @ORM\ManyToOne(targetEntity="\Cr\Entity\CantidadPrecio")
+     * @ORM\JoinColumn(name="opcion_id", referencedColumnName="id", nullable=true)
+     */
+    public $opcion = null;
+
+    /**
+     * @Annotation\Exclude()
+     * @ORM\Column(type="string", length=100, unique=false, nullable=true,
+     * name="nombre")
+     */
+    public $nombre = null;
 
     /**
      * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
@@ -52,48 +79,24 @@ class FormularioCinta
     public $idMercadoLibre = null;
 
     /**
-     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
-     * @Annotation\Options({"label":"dibujo","empty_option": "",
-     * "target_class":"\Cr\Entity\Dibujo", "description":""})
-     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Dibujo")
-     * @ORM\JoinColumn(name="dibujo_id", referencedColumnName="id", nullable=true)
-     */
-    public $dibujo = null;
-
-    /**
-     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
-     * @Annotation\Options({"label":"color","empty_option": "",
-     * "target_class":"\Cr\Entity\Color", "description":""})
-     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Color")
-     * @ORM\JoinColumn(name="color_id", referencedColumnName="id", nullable=true)
-     */
-    public $color = null;
-
-    /**
-     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
-     * @Annotation\Options({"label":"opcion","empty_option": "",
-     * "target_class":"\Cr\Entity\CantidadPrecio", "description":""})
-     * @ORM\ManyToOne(targetEntity="\Cr\Entity\CantidadPrecio")
-     * @ORM\JoinColumn(name="opcion_id", referencedColumnName="id", nullable=true)
-     */
-    public $opcion = null;
-
-    /**
-     * @Annotation\Type("Zend\Form\Element\Text")
-     * @Annotation\Attributes({"type":"text"})
-     * @Annotation\Options({"label":"nombre", "description":"", "addon":""})
-     * @ORM\Column(type="string", length=100, unique=false, nullable=true,
-     * name="nombre")
-     */
-    public $nombre = null;
-
-
-    /**
      * @Annotation\Exclude()
      * @ORM\Column(type="string", length=10, unique=true, nullable=false,
      * name="codigo")
      */
     public $codigo = null;
+
+    /**
+     * @Annotation\Exclude()
+     * @ORM\ManyToOne(targetEntity="\Cr\Entity\Color")
+     * @ORM\JoinColumn(name="color_fondo_id", referencedColumnName="id", nullable=true)
+     */
+    public $colorFondo = null;
+
+    /**
+     * @Annotation\Exclude()
+     * @ORM\Column(type="boolean", nullable=true, name="listo")
+     */
+    public $listo = null;
 
     public function getId()
     {
@@ -203,6 +206,26 @@ class FormularioCinta
     public function setCodigo($codigo)
     {
         $this->codigo = $codigo;
+    }
+
+    public function getColorFondo()
+    {
+        return $this->colorFondo;
+    }
+
+    public function setColorFondo($colorFondo)
+    {
+        $this->colorFondo = $colorFondo;
+    }
+
+    public function getListo()
+    {
+        return $this->listo;
+    }
+
+    public function setListo($listo)
+    {
+        $this->listo = $listo;
     }
 
     public function __toString()

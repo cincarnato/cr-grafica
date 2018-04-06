@@ -11,10 +11,10 @@ Vue.component('preview', {
     template: '<div class="row">' +
     '<div class="col-xs-12">' +
     '<div class="bwhite">' +
-    '<div class="col-lg-3 col-xs-4">' +
+    '<div class="col-lg-3 col-xs-3 text-center">' +
     '<img :src="dibujo.src" class="img-responsive" style="widht:80px;height:80px;" />' +
     '</div>' +
-    '<div class="col-lg-9 col-xs-8 text-center">' +
+    '<div class="col-lg-9 col-xs-9 text-center">' +
     '<label class="handleeFont labelPreview pt20" :style="cstyle">{{nombre}}</label>' +
     '</div>' +
     '</div>' +
