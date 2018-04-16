@@ -96,7 +96,7 @@ Vue.component('pedido', {
   '<form v-if="!pedido.listo" class="form" role="form" v-on:submit.prevent="encargar">' +
   '<div class="col-lg-12"> ' +
   '<div class="form-group">' +
-  '<label class="handleeFont fyellow">1° Elegi un dibujo:</label>' +
+  '<label class="handleeFont fyellow">1° Elegí un dibujo:</label>' +
   '<div class="clearfix"></div>' +
   '<dibujo v-for="dibujo, index in config.dibujos" :key="dibujo.id" :entity="dibujo" v-on:changedibujo="changedibujo" :checked="dibujo.id == pedido.dibujo.id"></dibujo>' +
   '</div>' +
@@ -104,7 +104,7 @@ Vue.component('pedido', {
   '<div class="clearfix"></div>' +
   '<div class="col-lg-12 ">' +
   '<div class="form-group"> ' +
-  '<label class="handleeFont fyellow">2° Elegi un color de letra:</label>' +
+  '<label class="handleeFont fyellow">2° Elegí un color de letra:</label>' +
   '<div class="clearfix"></div>' +
   '<color v-for="color, index in config.colores" :name="color" :key="color.id" :entity="color" v-on:changecolor="changecolor" :checked="color.id == pedido.color.id"></color>' +
   '</div>' +
@@ -112,20 +112,20 @@ Vue.component('pedido', {
   '<div class="clearfix"></div>' +
   '<div class="col-lg-12 ">' +
   '<div class="form-group"> ' +
-  '<label class="handleeFont fyellow">3° Elegi un color de fondo:</label>' +
+  '<label class="handleeFont fyellow">3° Elegí un color de fondo:</label>' +
   '<div class="clearfix"></div>' +
   '<color v-for="color, index in config.colores" :name="colorFondo" :key="color.id" :entity="color" v-on:changecolor="changecolorfondo" :checked="color.id == pedido.colorFondo.id"></color>' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +
   '<div class="col-lg-6 col-xs-12">' +
-  '<div class="form-group"> <label class="handleeFont fyellow">4° Escribi tu nombre:</label>' +
+  '<div class="form-group"> <label class="handleeFont fyellow">4° Escribí el nombre para tus cintas:</label>' +
   '<input class="form-control" name="nombre" v-model="pedido.nombre" />' +
   '</div>' +
   '</div>' +
   '<div class="clearfix"></div>' +
   '<div class="col-lg-6 col-xs-12">' +
-  '<div class="form-group"> <label class="handleeFont fyellow"> 5° Elegi una opción:</label>' +
+  '<div class="form-group"> <label class="handleeFont fyellow"> 5° Elegí una opción:</label>' +
   '<opcion :name="\'opcion\'" :clase="\'form-control\'" :opciones="config.opciones" v-on:changeopcion="changeopcion" :actual="pedido.opcion.id" ></opcion>' +
   '</div>' +
   '</div>' +
