@@ -4,7 +4,7 @@ namespace ZfMetal\Commons;
 
 return[
     'zf-metal-commons.options' => [
-        'title' => '<img src="/img/logo.jpg" class="" style="height: 50px; width: 50px;" />',
+        'title' => '<img src="/img/logo.jpeg" class="" style="height: 50px; width: 50px;" />',
         'tab_title' =>  'CR GRAFICA',
         'page_title' =>  '',
         'domain' => 'cr.showvlad.com',
