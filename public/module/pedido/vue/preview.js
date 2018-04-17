@@ -18,7 +18,7 @@ Vue.component('preview', {
   '<img :src="dibujo.src" class="img-responsive" style="widht:80px;height:80px;" />' +
   '</div>' +
   '<div class="col-lg-9 col-xs-9 text-center" :style="cfstyle">' +
-  '<label class="handleeFont labelPreview pt20" :style="cstyle">{{nombre}}</label>' +
+  '<label class="handleeFont labelPreview paddingPreview" :style="cstyle">{{nombre}}</label>' +
   '</div>' +
   '</div>' +
   '</div>' +

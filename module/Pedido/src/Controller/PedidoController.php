@@ -125,6 +125,9 @@ class PedidoController extends AbstractActionController
         $codigo = $this->params("codigo");
         if ($codigo) {
             $formularioCinta = $this->getEntityFormularioCintaRepository()->findOneByCodigo($codigo);
+        }
+
+        if ($formularioCinta) {
 
             $config = array();
             $config["pedido"]["id"] = $formularioCinta->getId();
@@ -138,7 +141,7 @@ class PedidoController extends AbstractActionController
                 $config["pedido"]["color"]["id"] = $formularioCinta->getColor()->getId();
                 $config["pedido"]["color"]["nombre"] = $formularioCinta->getColor()->getNombre();
                 $config["pedido"]["color"]["hexa"] = $formularioCinta->getColor()->getHexa();
-            }else{
+            } else {
 
                 $config["pedido"]["color"]["id"] = "";
                 $config["pedido"]["color"]["nombre"] = "";
@@ -149,7 +152,7 @@ class PedidoController extends AbstractActionController
                 $config["pedido"]["colorFondo"]["id"] = $formularioCinta->getColorFondo()->getId();
                 $config["pedido"]["colorFondo"]["nombre"] = $formularioCinta->getColorFondo()->getNombre();
                 $config["pedido"]["colorFondo"]["hexa"] = $formularioCinta->getColorFondo()->getHexa();
-            }else{
+            } else {
 
                 $config["pedido"]["colorFondo"]["id"] = "";
                 $config["pedido"]["colorFondo"]["nombre"] = "";
@@ -160,7 +163,7 @@ class PedidoController extends AbstractActionController
                 $config["pedido"]["dibujo"]["id"] = $formularioCinta->getDibujo()->getId();
                 $config["pedido"]["dibujo"]["nombre"] = $formularioCinta->getDibujo()->getNombre();
                 $config["pedido"]["dibujo"]["src"] = $formularioCinta->getDibujo()->getImg_fp();
-            }else{
+            } else {
                 $config["pedido"]["dibujo"]["id"] = "";
                 $config["pedido"]["dibujo"]["nombre"] = "";
                 $config["pedido"]["dibujo"]["src"] = "";
@@ -169,7 +172,7 @@ class PedidoController extends AbstractActionController
 
             if ($formularioCinta->getOpcion()) {
                 $config["pedido"]["opcion"]["id"] = $formularioCinta->getOpcion()->getId();
-            }else{
+            } else {
                 $config["pedido"]["opcion"]["id"] = "";
 
             }
@@ -204,10 +207,14 @@ class PedidoController extends AbstractActionController
 
             return ["config" => $config];
         } else {
-            return null;
+            return   $this->forward()->dispatch(get_class($this), ['action' => 'link-fail']);
         }
     }
 
+    public function linkFailAction()
+    {
+        return [];
+    }
 
 }
 

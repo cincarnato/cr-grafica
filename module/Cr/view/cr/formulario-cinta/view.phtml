@@ -38,6 +38,9 @@
         <th>Color fondo</th><td><?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getNombre():"-"; ?> (<?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getHexa():"-"; ?>) </td>
     </tr>
 
+    <tr>
+        <th>Opción</th><td><?php echo ($fc->getOpcion())?$fc->getOpcion()->getOpcion()." - ".$fc->getOpcion()->getPrecio():""; ?></td>
+    </tr>
 
 </table>
 
@@ -49,7 +52,7 @@
                 <img src="<?php echo ($fc->getDibujo())?$fc->getDibujo()->getImg_fp():""; ?>" class="img-responsive" style="widht:80px;height:80px;" />
                 </div>
             <div class="col-lg-9 col-xs-9 text-center" style="height:80px;background-color:<?php echo ($fc->getColorFondo())?$fc->getColorFondo()->getHexa():'#FFFFFF'; ?>">
-                <label class="handleeFont labelPreview pt20" style="color:<?php echo ($fc->getColor())?$fc->getColor()->getHexa():''; ?> ">
+                <label class="handleeFont labelPreview paddingPreview" style="color:<?php echo ($fc->getColor())?$fc->getColor()->getHexa():''; ?> ">
                     <?php echo $fc->getNombre(); ?>
                 </label>
                 </div>

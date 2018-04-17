@@ -73,14 +73,26 @@ Vue.component('pedido', {
       $('#mresultado').modal('show')
     },
     faltanDatos: function () {
-      $('#resultado').html("<div class='alert alert-warning'>Faltan datos. Debe seleccionar dibujo, color, nombre y opcion.</div>");
+      $('#resultado').html("<div class='alert alert-danger'>Faltan datos. Debe seleccionar dibujo, color, nombre y opcion.</div>");
       $('#mresultado').modal('show')
     },
+    mismoColor: function () {
+      $('#resultado').html("<div class='alert alert-danger'>No se puede seleccionar el mismo color de letra y fondo</div>");
+      $('#mresultado').modal('show');
+    },
     changecolor: function (data) {
-      this.pedido.color = data;
+      if(this.pedido.colorFondo.id != data.id){
+        this.pedido.color = data;
+      }else{
+        this.mismoColor();
+      }
     },
     changecolorfondo: function (data) {
-      this.pedido.colorFondo = data;
+      if(this.pedido.color.id != data.id) {
+        this.pedido.colorFondo = data;
+      }else{
+        this.mismoColor();
+      }
     },
     changedibujo: function (data) {
       this.pedido.dibujo = data;
