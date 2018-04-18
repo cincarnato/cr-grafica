@@ -1,9 +1,15 @@
 <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
-
-<div id="app" class="m5">
-    <cintasrevendedor :config='<?php echo json_encode($this->config); ?>'></cintasrevendedor>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <div class="card">
+            <div class="card-content">
+                <div id="app" class="m5">
+                    <cintasrevendedor :config='<?php echo json_encode($this->config); ?>'></cintasrevendedor>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div class="modal" tabindex="-100" role="dialog"
      id="mresultado"
      aria-labelledby="mresultado" data-keyword="true" data-backdrop="false">
@@ -31,6 +37,6 @@ $this->headScript()
     ->appendFile('/module/pedido/vue/opcion.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/color.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/dibujo.js', 'text/javascript')
-    ->appendFile('/module/pedido/vue/cintasRevendedor.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/cintasrevendedor.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/app.js', 'text/javascript');
 ?>
