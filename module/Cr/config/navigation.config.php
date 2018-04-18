@@ -47,6 +47,22 @@ return [
                 'permission' => 'general-admin',
                 'route' => 'Cr/cliente/Grid',
             ],
+            [
+                'label' => 'Revendedores',
+                'detail' => '',
+                'icon' => '',
+                'permission' => 'general-admin',
+                'uri' => '',
+                'pages' => [
+                    [
+                        'label' => 'Formulario Cinta Revendedor',
+                        'detail' => '',
+                        'icon' => '',
+                        'permission' => 'general-admin',
+                        'route' => 'Cr/FormularioCintaRevendedor/Grid',
+                    ],
+                ],
+            ],
         ],
     ],
 ];

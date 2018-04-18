@@ -60,7 +60,7 @@ return [
                                     ],
                                 ],
                             ],
-                        ]
+                        ],
                     ],
                     'Color' => [
                         'type' => 'Literal',
@@ -114,12 +114,11 @@ return [
                                 'options' => [
                                     'route' => '/view/:id',
                                     'defaults' => [
-                                        'controller' => \Cr\Controller\FormularioCintaController::CLASS,
+                                        'controller' => 'Cr\\Controller\\FormularioCintaController',
                                         'action' => 'view',
                                     ],
                                 ],
                             ],
-
                         ],
                     ],
                     'CantidadPrecio' => [
@@ -164,6 +163,30 @@ return [
                                     'route' => '/grid',
                                     'defaults' => [
                                         'controller' => \Cr\Controller\clienteController::CLASS,
+                                        'action' => 'grid',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                    'FormularioCintaRevendedor' => [
+                        'type' => 'Literal',
+                        'mayTerminate' => false,
+                        'options' => [
+                            'route' => '/formulario-cinta-revendedor',
+                            'defaults' => [
+                                'controller' => \Cr\Controller\FormularioCintaRevendedorController::CLASS,
+                                'action' => 'grid',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'Grid' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/grid',
+                                    'defaults' => [
+                                        'controller' => \Cr\Controller\FormularioCintaRevendedorController::CLASS,
                                         'action' => 'grid',
                                     ],
                                 ],

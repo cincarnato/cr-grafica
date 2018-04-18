@@ -9,6 +9,7 @@ return array(
             \Cr\Controller\FormularioCintaController::class => \Cr\Factory\Controller\FormularioCintaControllerFactory::class,
             \Cr\Controller\CantidadPrecioController::class => \Cr\Factory\Controller\CantidadPrecioControllerFactory::class,
             \Cr\Controller\clienteController::class => \Cr\Factory\Controller\clienteControllerFactory::class,
+            \Cr\Controller\FormularioCintaRevendedorController::class => \Cr\Factory\Controller\FormularioCintaRevendedorControllerFactory::class,
         ),
     ),
 );
