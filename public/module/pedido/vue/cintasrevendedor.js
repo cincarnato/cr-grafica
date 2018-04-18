@@ -1,12 +1,10 @@
-Vue.component('pedido', {
+Vue.component('cintasrevendedor', {
   props: ['config'],
   data: function () {
     return {
       pedido: {
         id: '',
         listo: false,
-        cliente:'',
-        idMercadoLibre: '',
         nombre: '',
         codigo: '',
         dibujo: {
@@ -37,7 +35,7 @@ Vue.component('pedido', {
       if (this.pedido.nombre && this.pedido.color.id && this.pedido.colorFondo.id && this.pedido.dibujo.id && this.pedido.opcion.id) {
         var that = this;
         $.ajax({
-          url: '/pedido/guardar/' + this.pedido.codigo,
+          url: '/revendedor/pedido-cinta/save/' + this.pedido.id,
           method: 'post',
           data: {
             id: this.pedido.id,

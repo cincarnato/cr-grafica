@@ -56,9 +56,9 @@ return [
             ],
             'crudConfig' => [
                 'enable' => true,
-                'displayName' => null,
+                'displayName' => "Acciones",
                 'add' => [
-                    'enable' => true,
+                    'enable' => false,
                     'class' => 'material-icons text-primary cursor-pointer',
                     'value' => 'add',
                 ],

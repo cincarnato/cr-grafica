@@ -38,6 +38,52 @@ return [
                             ],
                         ],
                     ],
+                    'PedidoCinta' => [
+                        'type' => 'Literal',
+                        'mayTerminate' => false,
+                        'options' => [
+                            'route' => '/pedido-cinta',
+                            'defaults' => [
+                                'controller' => \Revendedor\Controller\PedidoCintaController::CLASS,
+                                'action' => 'pedido',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'Pedido' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/pedido[/:id]',
+                                    'defaults' => [
+                                        'controller' => \Revendedor\Controller\PedidoCintaController::CLASS,
+                                        'action' => 'pedido',
+                                    ],
+                                ],
+                            ],
+                            'Save' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/save[/:id]',
+                                    'defaults' => [
+                                        'controller' => \Revendedor\Controller\PedidoCintaController::CLASS,
+                                        'action' => 'save',
+                                    ],
+                                ],
+                            ],
+                            'LinkFail' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/link-fail',
+                                    'defaults' => [
+                                        'controller' => \Revendedor\Controller\PedidoCintaController::CLASS,
+                                        'action' => 'linkFail',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
