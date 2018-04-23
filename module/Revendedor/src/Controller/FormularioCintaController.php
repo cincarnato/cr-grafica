@@ -62,6 +62,11 @@ class FormularioCintaController extends AbstractActionController
 
     public function gridAction()
     {
+
+        $user = $this->identity();
+        if(!$user->hasRole("admin")) {
+            $this->grid->getSource()->getQb()->where("u.usuario = :user")->setParameter("user", $user->getId());
+        }
         $this->grid->prepare();
 
         return array("grid" => $this->grid);

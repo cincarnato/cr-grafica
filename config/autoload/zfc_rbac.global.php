@@ -8,6 +8,7 @@ return [
             \ZfcRbac\Guard\RouteGuard::class => [
                 'home*' => [ 'usuario', 'admin','revendedor'],
                 'Application*' => [ 'usuario', 'admin'],
+                'Cr*' => ['admin'],
                 'Pedido' => ['invitado', 'usuario', 'admin'],
             ],
             \ZfcRbac\Guard\RoutePermissionsGuard::class => [
