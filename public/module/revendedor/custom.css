@@ -1,0 +1,204 @@
+
+.pedidoBack {
+    background: #1B1B1B;
+    background-image: url('/img/pedido/patron/b1.png');
+    background-repeat: repeat;
+}
+
+
+.handleeFont {
+    font-family: 'Handlee', cursive;
+    font-size: 18px !important;
+}
+
+
+
+.bwhite {
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+
+.labelPreview {
+    font-size: 28px;
+}
+
+.paddingPreview {
+    padding-top: 20px;
+}
+
+@media (min-width: 1059px) {
+    .pedidoHead {
+        background-image: url('/img/pedido/head.gif');
+        background-position: center;
+        width: 1059px;
+        height: 138px;
+        margin: 0 auto;
+    }
+
+    .pedidoFooter {
+        background-image: url('/img/pedido/footermax.png');
+        background-position: center;
+        width: 1059px;
+        height: 231px;
+        margin: 0 auto;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/patron/b8.png');
+        background-position: center;
+        background-repeat: repeat;
+        margin: 0 auto;
+        width: 1059px;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+
+}
+
+@media (min-width: 800px) and (max-width: 1058px) {
+
+    .pedidoHead {
+        background-image: url('/img/pedido/headmin799x104.png');
+        background-position: center;
+        width: 799px;
+        height: 104px;
+        margin: 0 auto;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/patron/b8.png');
+        background-position: center;
+        background-repeat: repeat;
+        margin: 0 auto;
+        width: 799px;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 20px;
+    }
+
+
+
+}
+
+
+
+@media (min-width: 460px) and (max-width: 800px) {
+    .pedidoHead {
+        background-image: url('/img/pedido/headmin460x60.png');
+        background-position: center;
+        width: 460px;
+        height: 60px;
+        margin: 0 auto;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/patron/b8.png');
+        background-position: center;
+        background-repeat: repeat;
+        margin: 0 auto;
+        width: 460px;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+}
+
+
+@media (min-width: 400px) and (max-width: 460px) {
+    .pedidoHead {
+        background-image: url('/img/pedido/headmin400x52.png');
+        background-position: center;
+        width: 400px;
+        height: 52px;
+        margin: 0 auto;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/patron/b8.png');
+        background-position: center;
+        background-repeat: repeat;
+        margin: 0 auto;
+        width: 400px;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+
+    .labelPreview {
+        font-size: 20px;
+    }
+
+    .paddingPreview {
+        padding-top: 22px;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+    .pedidoHead {
+        background-image: url('/img/pedido/headmin300x39.png');
+        background-position: center;
+        width: 300px;
+        height: 39px;
+        margin: 0 auto;
+    }
+
+    .pedidoBody {
+        background-image: url('/img/pedido/patron/b8.png');
+        background-position: center;
+        background-repeat: repeat;
+        margin: 0 auto;
+        width: 300px;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    .labelPreview {
+        font-size: 18px;
+    }
+
+    .paddingPreview {
+        padding-top: 27px;
+    }
+
+}
+
+@media (min-width: 100px) and (max-width: 300px) {
+
+    .pedidoBody {
+        background-image: url('/img/pedido/patron/b8.png');
+        background-repeat: repeat;
+        min-height: 600px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    .labelPreview {
+        font-size: 14px;
+    }
+
+    .paddingPreview {
+        padding-top: 35px;
+    }
+
+}
+
+
+
+.m5 {
+    margin: 5px;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.pt10 {
+    padding-top: 10px;
+}
+

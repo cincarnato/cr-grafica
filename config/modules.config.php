@@ -36,8 +36,5 @@ return [
     'Cr',
     'Pedido',
     'Revendedor',
-    //'SkinAdminlte',
-    //'SkinCentaurus',
-   // 'SkinMaterialDesignB4',
     'SkinMaterialDashboard'
 ];

@@ -6,7 +6,7 @@ return [
        // 'protection_policy' => \ZfcRbac\Guard\GuardInterface::POLICY_DENY,
         'guards' => [
             \ZfcRbac\Guard\RouteGuard::class => [
-                'home*' => [ 'usuario', 'admin'],
+                'home*' => [ 'usuario', 'admin','revendedor'],
                 'Application*' => [ 'usuario', 'admin'],
                 'Pedido' => ['invitado', 'usuario', 'admin'],
             ],

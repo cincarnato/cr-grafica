@@ -37,7 +37,8 @@
                     <thead>
                     <tr>
                         <?php foreach ($this->grid->getColumns() as $column): ?>
-                            <?php if (!$column->getHidden()): ?>
+
+                            <?php if ($column->getHidden() === false && ($column->getPermission() === null ||  $this->isGranted($column->getPermission()))): ?>
 
                                 <?php if ($column->getType() != "extra" && $column->getType() != "crud"): ?>
 
@@ -85,7 +86,8 @@
                         <?php foreach ($this->grid->getRow() as $data): ?>
                             <tr>
                                 <?php foreach ($this->grid->getColumns() as $column): ?>
-                                    <?php if (!$column->getHidden()): ?>
+                                    <?php if ($column->getHidden() === false && ($column->getPermission() === null ||  $this->isGranted($column->getPermission()))): ?>
+
                                         <td class="<?php echo $column->getTdClass(); ?>">
                                             <?php //TODO - echo $column->getHtmlBegin(); ?>
 
@@ -94,6 +96,7 @@
                                             <?php //TODO - echo $column->getHtmlEnd(); ?>
 
                                         </td>
+
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </tr>

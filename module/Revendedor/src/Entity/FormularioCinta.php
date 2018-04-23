@@ -10,9 +10,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * FormularioCinta
- *
- *
- *
+ * 
+ * 
+ * 
  * @author
  * @license
  * @link
@@ -96,6 +96,12 @@ class FormularioCinta
      */
     public $clienteRevendedor = null;
 
+    /**
+     * @Annotation\Exclude()
+     * @ORM\Column(type="boolean", nullable=true, name="listo")
+     */
+    public $listo = null;
+
     public function getId()
     {
         return $this->id;
@@ -176,9 +182,19 @@ class FormularioCinta
         $this->clienteRevendedor = $clienteRevendedor;
     }
 
+    public function getListo()
+    {
+        return $this->listo;
+    }
+
+    public function setListo($listo)
+    {
+        $this->listo = $listo;
+    }
+
     public function __toString()
     {
-        return (string) $this->nombre;
+        return  $this->nombre;
     }
 
 

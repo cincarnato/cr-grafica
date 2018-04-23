@@ -36,6 +36,17 @@ return [
                                     ],
                                 ],
                             ],
+                            'View' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/view/:id',
+                                    'defaults' => [
+                                        'controller' => \Revendedor\Controller\FormularioCintaController::CLASS,
+                                        'action' => 'view',
+                                    ],
+                                ],
+                            ],
                         ],
                     ],
                     'PedidoCinta' => [

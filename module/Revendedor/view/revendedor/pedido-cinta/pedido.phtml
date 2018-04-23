@@ -39,4 +39,9 @@ $this->headScript()
     ->appendFile('/module/pedido/vue/dibujo.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/cintasrevendedor.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/app.js', 'text/javascript');
+
+echo $this->headLink()
+    ->appendStylesheet($this->basePath() . '/module/revendedor/custom.css');
+
 ?>
+

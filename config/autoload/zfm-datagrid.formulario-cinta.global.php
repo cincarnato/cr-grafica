@@ -55,10 +55,19 @@ return [
                 'clienteRevendedor' => [
                     'displayName' => 'Cliente Revendedor',
                     'priority' => 2,
+                    'hidden' => true,
                 ],
                 'usuario' => [
                     'displayName' => 'Usuario',
                     'type' => 'relational',
+                    'priority' => 11,
+                    'permission' => 'general-admin'
+                ],
+                'listo' => [
+                    'priority' => 12,
+                    'type' => 'boolean',
+                    'valueWhenTrue' => '<span class="text-success">Listo</span>',
+                    'valueWhenFalse' => '<span class="text-danger">Pendiente</span>'
                 ],
             ],
             'crudConfig' => [
@@ -72,7 +81,8 @@ return [
                 'edit' => [
                     'enable' => true,
                     'class' => 'material-icons text-primary cursor-pointer',
-                    'value' => 'mode_edit'
+                    'value' => 'mode_edit',
+                    'action' => 'href="/revendedor/pedido-cinta/pedido/{{id}}"',
                 ],
                 'del' => [
                     'enable' => true,

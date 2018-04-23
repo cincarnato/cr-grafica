@@ -1,75 +1,94 @@
-
-
-
-
 <div class="row">
-    <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
-        <a href="/cr/cliente/grid">
-            <div class="card card-chart" data-count="4">
-                <div class="card-header" data-background-color="blue" data-header-animation="true">
-                    <i class="material-icons cubeIcon">assignment_ind</i>
-                </div>
-                <div class="card-content">
-                    <h4 class="card-title text-center">Clientes</h4>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
-        <a href="/cr/formulario-cinta/grid">
-            <div class="card card-chart" data-count="4">
-                <div class="card-header" data-background-color="red" data-header-animation="true">
-                    <i class="material-icons cubeIcon">reorder</i>
-                </div>
-                <div class="card-content">
-                    <h4 class="card-title text-center">Formularios (Admin)</h4>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
-        <a href="/cr/dibujo/grid">
-            <div class="card card-chart" data-count="4">
-                <div class="card-header" data-background-color="green" data-header-animation="true">
-                    <i class="material-icons cubeIcon">collections</i>
-                </div>
-                <div class="card-content">
-                    <h4 class="card-title text-center">Dibujos</h4>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
-        <a href="/cr/color/grid">
-            <div class="card card-chart" data-count="4">
-                <div class="card-header" data-background-color="green" data-header-animation="true">
-                    <i class="material-icons cubeIcon">color_lens</i>
-                </div>
-                <div class="card-content">
-                    <h4 class="card-title text-center">Colores</h4>
-                </div>
-            </div>
-        </a>
-    </div>
+    <?php if ($this->isGranted("general-admin")): ?>
 
 
-    <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
-        <a href="/cr/cantidad-precio/grid">
-            <div class="card card-chart" data-count="4">
-                <div class="card-header" data-background-color="green" data-header-animation="true">
-                    <i class="material-icons cubeIcon">attach_money</i>
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
+            <a href="/cr/cliente/grid">
+                <div class="card card-chart" data-count="4">
+                    <div class="card-header" data-background-color="blue" data-header-animation="true">
+                        <i class="material-icons cubeIcon">assignment_ind</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title text-center">Clientes</h4>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h4 class="card-title text-center">Opción & Precio</h4>
+            </a>
+        </div>
+
+
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
+            <a href="/cr/dibujo/grid">
+                <div class="card card-chart" data-count="4">
+                    <div class="card-header" data-background-color="green" data-header-animation="true">
+                        <i class="material-icons cubeIcon">collections</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title text-center">Dibujos</h4>
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
+            <a href="/cr/color/grid">
+                <div class="card card-chart" data-count="4">
+                    <div class="card-header" data-background-color="green" data-header-animation="true">
+                        <i class="material-icons cubeIcon">color_lens</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title text-center">Colores</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
+            <a href="/cr/cantidad-precio/grid">
+                <div class="card card-chart" data-count="4">
+                    <div class="card-header" data-background-color="green" data-header-animation="true">
+                        <i class="material-icons cubeIcon">attach_money</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title text-center">Opción & Precio</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
+            <a href="/cr/formulario-cinta/grid">
+                <div class="card card-chart" data-count="4">
+                    <div class="card-header" data-background-color="red" data-header-animation="true">
+                        <i class="material-icons cubeIcon">reorder</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title text-center">Cinta - MercadoLibre</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    <?php endif; ?>
+
+    <?php if ($this->isGranted("reventa")): ?>
+
+        <div class="col-lg-3 col-md-4 col-xs-12 col-sm-6">
+            <a href="/revendedor/formulario-cinta/grid">
+                <div class="card card-chart" data-count="4">
+                    <div class="card-header" data-background-color="red" data-header-animation="true">
+                        <i class="material-icons cubeIcon">reorder</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title text-center">Cinta - Revendedor</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <?php endif; ?>
+
 </div>
-
 <style>
     .cubeIcon {
         position: relative;

@@ -3,12 +3,13 @@
 namespace Revendedor\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use ZfMetal\Security\Entity\User;
 
 /**
  * FormularioCintaController
- *
- *
- *
+ * 
+ * 
+ * 
  * @author
  * @license
  * @link
@@ -16,7 +17,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 class FormularioCintaController extends AbstractActionController
 {
 
-    const ENTITY = '\\Revendedor\\Entity\\FormularioCintaRevendedor';
+    const ENTITY = '\\Revendedor\\Entity\\FormularioCinta';
 
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -62,7 +63,15 @@ class FormularioCintaController extends AbstractActionController
     public function gridAction()
     {
         $this->grid->prepare();
+
         return array("grid" => $this->grid);
+    }
+
+    public function viewAction()
+    {
+        $id = $this->params("id");
+        $formularioCinta = $this->getEntityRepository()->find($id);
+        return ["fc" => $formularioCinta];
     }
 
 
