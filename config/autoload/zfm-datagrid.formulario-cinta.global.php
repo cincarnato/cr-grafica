@@ -64,6 +64,7 @@ return [
                     'permission' => 'general-admin'
                 ],
                 'listo' => [
+                    'displayName' => 'Estado',
                     'priority' => 12,
                     'type' => 'boolean',
                     'hidden' => false,
