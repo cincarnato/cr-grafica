@@ -66,6 +66,7 @@ return [
                 'listo' => [
                     'priority' => 12,
                     'type' => 'boolean',
+                    'hidden' => false,
                     'valueWhenTrue' => '<span class="text-success">Listo</span>',
                     'valueWhenFalse' => '<span class="text-danger">Pendiente</span>'
                 ],
