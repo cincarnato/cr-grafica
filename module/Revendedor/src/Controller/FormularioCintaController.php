@@ -66,6 +66,8 @@ class FormularioCintaController extends AbstractActionController
         $user = $this->identity();
         if(!$user->hasRole("admin")) {
             $this->grid->getSource()->getQb()->where("u.usuario = :user")->setParameter("user", $user->getId());
+            //Admin cant change de form
+            //$this->grid->getOptions()->getCrudConfig()->getEdit()->setEnable(false);
         }
         $this->grid->prepare();
 
