@@ -36,6 +36,17 @@ return [
                                     ],
                                 ],
                             ],
+                            'Finalizar' => [
+                                'type' => 'Segment',
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/finalizar/:id',
+                                    'defaults' => [
+                                        'controller' => \Revendedor\Controller\FormularioCintaController::CLASS,
+                                        'action' => 'finalizar',
+                                    ],
+                                ],
+                            ],
                             'View' => [
                                 'type' => 'Segment',
                                 'mayTerminate' => true,

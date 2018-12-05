@@ -81,13 +81,13 @@ return [
                     'action' => 'href="/revendedor/pedido-cinta/pedido"',
                 ],
                 'edit' => [
-                    'enable' => true,
+                    'enable' => false,
                     'class' => 'material-icons text-primary cursor-pointer',
                     'value' => 'mode_edit',
                     'action' => 'href="/revendedor/pedido-cinta/pedido/{{id}}"',
                 ],
                 'del' => [
-                    'enable' => true,
+                    'enable' => false,
                     'class' => 'material-icons text-danger cursor-pointer',
                     'value' => 'delete_sweep'
                 ],

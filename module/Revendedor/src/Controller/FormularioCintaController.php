@@ -2,6 +2,7 @@
 
 namespace Revendedor\Controller;
 
+use Revendedor\Entity\FormularioCinta;
 use Zend\Mvc\Controller\AbstractActionController;
 use ZfMetal\Security\Entity\User;
 
@@ -66,13 +67,30 @@ class FormularioCintaController extends AbstractActionController
         $user = $this->identity();
         if(!$user->hasRole("admin")) {
             $this->grid->getSource()->getQb()->where("u.usuario = :user")->setParameter("user", $user->getId());
+
             //Admin cant change de form
             //$this->grid->getOptions()->getCrudConfig()->getEdit()->setEnable(false);
+        }else{
+            $this->grid->addExtraColumn("Finalizar", "<a href='/revendedor/formulario-cinta/finalizar/{{id}}' class='btn'>Finalizar</a>");
         }
         $this->grid->prepare();
 
         return array("grid" => $this->grid);
     }
+
+
+    public function finalizarAction()
+    {
+        $id = $this->params("id");
+        /** @var FormularioCinta $formularioCinta */
+        $formularioCinta = $this->getEntityRepository()->find($id);
+        $formularioCinta->setListo(true);
+        $this->getEm()->persist($formularioCinta);
+        $this->getEm()->flush();
+        $this->flashmessenger()->addSuccessMessage("Se finalizo el pedido ". $id. " con exito");
+        $this->redirect()->toRoute("Revendedor/FormularioCinta/Grid");
+    }
+
 
     public function viewAction()
     {
