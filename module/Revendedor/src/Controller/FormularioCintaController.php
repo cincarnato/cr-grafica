@@ -4,6 +4,7 @@ namespace Revendedor\Controller;
 
 use Revendedor\Entity\FormularioCinta;
 use Zend\Mvc\Controller\AbstractActionController;
+use ZfMetal\Mail\MailManager;
 use ZfMetal\Security\Entity\User;
 
 /**
@@ -73,6 +74,23 @@ class FormularioCintaController extends AbstractActionController
         }else{
             $this->grid->addExtraColumn("Finalizar", "<a href='/revendedor/formulario-cinta/finalizar/{{id}}' class='btn'>Finalizar</a>");
         }
+
+        /** @var MailManager $mailManager */
+        $mailManager = $this->mailManager();
+        $this->getEventManager()->attach("saveRecord_post", function ($e) use ($mailManager) {
+            $record = $e->getParam("record");
+            $usuario = $record->getUsuario()->getUsername();
+            $id = $record->getId();
+            $mailManager->setFrom("ci.sys.virtual@gmail.com");
+            $mailManager->addBcc("cristian.cdi@gmail.com");
+            $mailManager->addTo("cristiansapir@hotmail.com");
+            $mailManager->setSubject("Nuevo pedido de Revendedor");
+            $mailManager->setBody("Se ha registrado un nuevo pedido con ID <b>". $id ."</b> de revendedor del usuario <b>". $usuario."</b>");
+            $mailManager->send();
+        });
+
+
+
         $this->grid->prepare();
 
         return array("grid" => $this->grid);

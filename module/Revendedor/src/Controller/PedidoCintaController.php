@@ -129,6 +129,19 @@ class PedidoCintaController extends AbstractActionController
 
                 $this->getEm()->persist($formularioCinta);
                 $this->getEm()->flush();
+
+                $id= $formularioCinta->getId();
+                $usuario = $formularioCinta->getUsuario()->getUsername();
+                $this->mailManager()->setFrom("ci.sys.virtual@gmail.com");
+                $this->mailManager()->addTo("cristian.cdi@gmail.com");
+                $this->mailManager()->setSubject("Nuevo pedido de Revendedor ".$id);
+                $this->mailManager()->setBody("Se ha registrado un nuevo pedido con ID ". $id ." de revendedor del usuario ". $usuario);
+                try {
+                    $this->mailManager()->send();
+                }catch (\Exception $e){
+                $this->logger->err($e->getMessage());
+                }
+
                 $result["status"] = true;
             } catch (\Exception $e) {
                 $result["msj"] = $e->getMessage();

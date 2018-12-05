@@ -64,7 +64,8 @@ Vue.component('cintasrevendedor', {
     saveOk: function () {
       this.pedido.listo = true;
       $('#resultado').html("<div class='alert alert-success'>Encargo guardado satisfactoriamente.</div>");
-      $('#mresultado').modal('show')
+      $('#mresultado').modal('show');
+        window.location.href = "/revendedor/formulario-cinta/grid";
     },
     saveFail: function () {
       $('#resultado').html("<div class='alert alert-danger'>Error al guardar.</div>");
