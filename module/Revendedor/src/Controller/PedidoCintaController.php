@@ -134,7 +134,7 @@ class PedidoCintaController extends AbstractActionController
                 $usuario = $formularioCinta->getUsuario()->getUsername();
                 $this->mailManager()->setFrom("ci.sys.virtual@gmail.com");
                 $this->mailManager()->addTo("cristian.cdi@gmail.com");
-             //   $this->mailManager()->addTo("cristiansapir@hotmail.com");
+                $this->mailManager()->addTo("cristiansapir@hotmail.com");
                 $this->mailManager()->setSubject("Grafica CR Print - Su pedido #".$id." de cinta fue cargado con exito");
                 $this->mailManager()->setTemplate("revendedor/mail/nuevo-pedido",["formularioCinta" => $formularioCinta]);
                 //$this->mailManager()->setBody("Se ha registrado un nuevo pedido con ID ". $id ." de revendedor del usuario ". $usuario);
