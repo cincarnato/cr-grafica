@@ -1,0 +1,46 @@
+
+
+<p>Su pedido de Cinta fue cargado cargado con exito</p>
+
+
+
+<ul>
+
+    <li>
+        <strong>Usuario:</strong> <?php echo $formularioCinta->getUsuario()->getUsername(); ?>
+    </li>
+    <li>
+        <strong>Número de Pedido:</strong> #<?php echo $formularioCinta->getId(); ?>
+    </li>
+
+    <li>
+        <strong>Color:</strong> <?php echo $formularioCinta->getColor(); ?>
+    </li>
+
+    <li>
+        <strong>Color Fondo:</strong>  <?php echo $formularioCinta->getColorFondo(); ?>
+    </li>
+
+    <li>
+        <strong>Texto:</strong>  <?php echo $formularioCinta->getNombre(); ?>
+    </li>
+
+    <li>
+        <strong>Opción:</strong>  <?php echo $formularioCinta->getOpcion(); ?>
+    </li>
+
+
+    <li>
+        <strong>Dibujo:</strong><br>
+        <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
+    </li>
+</ul>
+
+<p>Una vez terminado el trabajo le enviaremos un mail.</p>
+
+<p>Saludos ATTE</p>
+
+<span>Grafica CR Print</span><br>
+<span>Tel 3969-7409</span><br>
+<span>Whatsapp 11 6736-3333</span><br>
+<span>Av. Juan B. Alberdi 1924</span><br>
