@@ -8,13 +8,14 @@ use Cr\Entity\CantidadPrecio;
 use Cr\Entity\Color;
 use Cr\Entity\Dibujo;
 use Zend\View\Model\JsonModel;
+use ZfMetal\Mail\MailManager;
 use ZfMetal\Security\Entity\User;
 
 /**
  * PedidoCintaController
  *
  *
- *
+ * @method MailManager mailManager()
  * @author
  * @license
  * @link
@@ -134,8 +135,8 @@ class PedidoCintaController extends AbstractActionController
                 $usuario = $formularioCinta->getUsuario()->getUsername();
                 $mailUsuario = $formularioCinta->getUsuario()->getEmail();
                 $this->mailManager()->setFrom("ci.sys.virtual@gmail.com");
-                $this->mailManager()->addTo("cristian.cdi@gmail.com");
-                $this->mailManager()->addTo("cristiansapir@hotmail.com");
+                $this->mailManager()->addBcc("cristian.cdi@gmail.com");
+                $this->mailManager()->addTo("kristiansolution@gmail.com");
                 $this->mailManager()->addTo($mailUsuario);
                 $this->mailManager()->setSubject("Grafica CR Print - Su pedido #".$id." de cinta fue cargado con exito");
                 $this->mailManager()->setTemplate("revendedor/mail/nuevo-pedido",["formularioCinta" => $formularioCinta]);
