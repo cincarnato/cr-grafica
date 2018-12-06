@@ -36,8 +36,35 @@
         <strong>Dibujo:</strong><br>
         <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
     </li>
+
 </ul>
 
+
+<h3>Preview</h3>
+
+<div style="width: 500px; height: 100px">
+    <table>
+        <tr>
+            <td style="width:100px;min-width:100px;">
+                <img style="width: 100px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
+            </td>
+            <td style="
+                    min-width:400px;
+                    width:400px;
+                    text-align: center;
+                    vertical-align: center;
+                    font-size: 20px;
+                    color: <?php echo $formularioCinta->getColor()->getHexa(); ?>;
+                    background-color: <?php echo $formularioCinta->getColorFondo()->getHexa(); ?>;
+                    "
+            >
+                <?php echo $formularioCinta->getNombre(); ?>
+            </td>
+        </tr>
+
+    </table>
+</div>
+<br><br>
 <p>Una vez terminado el trabajo le enviaremos un mail.</p>
 
 <p>Saludos ATTE</p>
