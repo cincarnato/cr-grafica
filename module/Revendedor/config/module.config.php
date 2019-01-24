@@ -6,6 +6,7 @@ include "doctrine.config.php",
 include "navigation.config.php",
 include "route.config.php",
 include "view.config.php",
+include "zfm-datagrid.estado.config.php",
 include "zfm-datagrid.formulario-cinta.config.php"
 );
 

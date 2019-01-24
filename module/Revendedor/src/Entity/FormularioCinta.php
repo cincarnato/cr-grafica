@@ -102,6 +102,28 @@ class FormularioCinta
      */
     public $listo = null;
 
+    /**
+     * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
+     * @Annotation\Options({"label":"Estado","empty_option": "",
+     * "target_class":"\Revendedor\Entity\Estado", "description":""})
+     * @ORM\ManyToOne(targetEntity="\Revendedor\Entity\Estado")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id", nullable=true)
+     */
+    public $estado = null;
+
+    /**
+     * @Annotation\Type("Zend\Form\Element\File")
+     * @Annotation\Attributes({"type":"file"})
+     * @Annotation\Options({"label":"Dibujo
+     * Personalizado","absolutepath":"./public/media/dibujos-personalizados","webpath":"/media/dibujos-personalizados",
+     * "description":""})
+     * @Annotation\Filter({"name":"filerenameupload",
+     * "options":{"target":"./public/media/dibujos-personalizados","use_upload_name":1,"overwrite":1}})
+     * @ORM\Column(type="string", length=100, unique=false, nullable=true,
+     * name="dibujo_personalizado")
+     */
+    public $dibujoPersonalizado = null;
+
     public function getId()
     {
         return $this->id;
@@ -192,9 +214,44 @@ class FormularioCinta
         $this->listo = $listo;
     }
 
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    }
+
+    public function getDibujoPersonalizado()
+    {
+        return $this->dibujoPersonalizado;
+    }
+
+    public function setDibujoPersonalizado($dibujoPersonalizado)
+    {
+        $this->dibujoPersonalizado = $dibujoPersonalizado;
+    }
+
+    public function getDibujoPersonalizado_ap()
+    {
+        return "./public/media/dibujos-personalizados";
+    }
+
+    public function getDibujoPersonalizado_wp()
+    {
+        return "/media/dibujos-personalizados";
+    }
+
+    public function getDibujoPersonalizado_fp()
+    {
+        return "/media/dibujos-personalizados".$this->dibujoPersonalizado;
+    }
+
     public function __toString()
     {
-        return  $this->nombre;
+        return (string) $this->nombre;
     }
 
 

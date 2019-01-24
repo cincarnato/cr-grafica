@@ -42,7 +42,7 @@ return [
                                 'options' => [
                                     'route' => '/finalizar/:id',
                                     'defaults' => [
-                                        'controller' => \Revendedor\Controller\FormularioCintaController::CLASS,
+                                        'controller' => 'Revendedor\\Controller\\FormularioCintaController',
                                         'action' => 'finalizar',
                                     ],
                                 ],
@@ -103,6 +103,30 @@ return [
                                         'action' => 'linkFail',
                                     ],
                                 ],
+                            ],
+                        ],
+                    ],
+                    'Estado' => [
+                        'mayTerminate' => false,
+                        'options' => [
+                            'route' => '/estado',
+                            'defaults' => [
+                                'controller' => \Revendedor\Controller\EstadoController::CLASS,
+                                'action' => 'grid',
+                            ],
+                        ],
+                        'type' => 'Literal',
+                        'child_routes' => [
+                            'Grid' => [
+                                'mayTerminate' => true,
+                                'options' => [
+                                    'route' => '/grid',
+                                    'defaults' => [
+                                        'controller' => \Revendedor\Controller\EstadoController::CLASS,
+                                        'action' => 'grid',
+                                    ],
+                                ],
+                                'type' => 'Segment',
                             ],
                         ],
                     ],
