@@ -60,6 +60,7 @@ return [
                     'displayName' => 'Usuario',
                     'type' => 'relational',
                 ],
+
             ],
             'crudConfig' => [
                 'enable' => true,

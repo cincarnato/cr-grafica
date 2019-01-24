@@ -67,7 +67,7 @@ return [
                     'displayName' => 'Estado',
                     'priority' => 12,
                     'type' => 'boolean',
-                    'hidden' => false,
+                    'hidden' => true,
                     'valueWhenTrue' => '<span class="text-success">Listo</span>',
                     'valueWhenFalse' => '<span class="text-danger">Pendiente</span>'
                 ],

@@ -41,6 +41,14 @@ class Estado
      */
     public $nombre = null;
 
+    /**
+     * @Annotation\Type("Zend\Form\Element\Text")
+     * @Annotation\Attributes({"type":"text"})
+     * @Annotation\Options({"label":"Color", "description":"", "addon":""})
+     * @ORM\Column(type="string", length=7, unique=false, nullable=true, name="color")
+     */
+    public $color = null;
+
     public function getId()
     {
         return $this->id;
@@ -59,6 +67,16 @@ class Estado
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+    }
+
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    public function setColor($color)
+    {
+        $this->color = $color;
     }
 
     public function __toString()

@@ -2,7 +2,11 @@
 
 namespace Revendedor\Controller;
 
+use Doctrine\ORM\Internal\Hydration\ObjectHydrator;
+use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
+use DoctrineORMModule\Service\DoctrineObjectHydratorFactory;
 use Revendedor\Entity\FormularioCinta;
+use Revendedor\Form\EstadoPedidoCinta;
 use Zend\Mvc\Controller\AbstractActionController;
 use ZfMetal\Mail\MailManager;
 use ZfMetal\Security\Entity\User;
@@ -68,11 +72,6 @@ class FormularioCintaController extends AbstractActionController
         $user = $this->identity();
         if(!$user->hasRole("admin")) {
             $this->grid->getSource()->getQb()->where("u.usuario = :user")->setParameter("user", $user->getId());
-
-            //Admin cant change de form
-            //$this->grid->getOptions()->getCrudConfig()->getEdit()->setEnable(false);
-        }else{
-            $this->grid->addExtraColumn("Finalizar", "<a href='/revendedor/formulario-cinta/finalizar/{{id}}' class='btn'>Finalizar</a>");
         }
 
 
@@ -101,7 +100,25 @@ class FormularioCintaController extends AbstractActionController
     {
         $id = $this->params("id");
         $formularioCinta = $this->getEntityRepository()->find($id);
-        return ["fc" => $formularioCinta];
+        $form = new EstadoPedidoCinta($this->getEm());
+        $form->setHydrator(new DoctrineObject($this->getEm()));
+
+        $form->bind($formularioCinta);
+
+        if($this->getRequest()->isPost()){
+
+            $form->setData($this->getRequest()->getPost());
+
+            if($form->isValid()){
+
+                $this->getEm()->persist($formularioCinta);
+                $this->getEm()->flush();
+            }
+
+        }
+
+
+        return ["fc" => $formularioCinta, "form" => $form];
     }
 
 

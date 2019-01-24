@@ -25,6 +25,13 @@ return [
                         'permission' => 'reventa',
                         'route' => 'Revendedor/PedidoCinta/Pedido',
                     ],
+                    [
+                        'label' => 'Estados',
+                        'detail' => '',
+                        'icon' => '',
+                        'permission' => 'general-admin',
+                        'route' => 'Revendedor/Estado/Grid',
+                    ],
                 ],
             ],
         ],
