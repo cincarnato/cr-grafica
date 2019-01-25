@@ -15,7 +15,7 @@ return [
                 'columns' => \ZfMetal\Commons\Consts::COLUMNS_ONE,
                 'style' => \ZfMetal\Commons\Consts::STYLE_VERTICAL,
                 'groups' => [
-                    
+
                 ],
             ],
             'columnsConfig' => [
@@ -71,6 +71,10 @@ return [
                     'valueWhenTrue' => '<span class="text-success">Listo</span>',
                     'valueWhenFalse' => '<span class="text-danger">Pendiente</span>'
                 ],
+                'dibujoPersonalizado' => [
+                    'displayName' => 'dibujoPersonalizado',
+                    'hidden' => true,
+                ]
             ],
             'crudConfig' => [
                 'enable' => true,
