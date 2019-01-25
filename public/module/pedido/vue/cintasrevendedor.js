@@ -59,6 +59,7 @@ Vue.component('cintasrevendedor', {
                 formData.append('id',this.pedido.id);
                 formData.append('nombre',this.pedido.nombre);
                 formData.append('color',this.pedido.color.id);
+                formData.append('colorFondo',this.pedido.colorFondo.id);
                 formData.append('dibujo',this.pedido.dibujo.id);
                 formData.append('opcion',this.pedido.opcion.id);
                 formData.append('dibujoPersonalizado',this.pedido.dibujoPersonalizado);
