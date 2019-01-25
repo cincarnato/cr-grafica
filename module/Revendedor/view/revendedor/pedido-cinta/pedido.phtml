@@ -33,11 +33,11 @@
 <?php
 $this->headScript()
     ->appendFile('/shared/vuejs/vue.js')
-    ->appendFile('/module/pedido/vue/preview.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/preview.js?v=1', 'text/javascript')
     ->appendFile('/module/pedido/vue/opcion.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/color.js', 'text/javascript')
     ->appendFile('/module/pedido/vue/dibujo.js', 'text/javascript')
-    ->appendFile('/module/pedido/vue/cintasrevendedor.js', 'text/javascript')
+    ->appendFile('/module/pedido/vue/cintasrevendedor.js?v=1', 'text/javascript')
     ->appendFile('/module/pedido/vue/app.js', 'text/javascript');
 
 echo $this->headLink()
