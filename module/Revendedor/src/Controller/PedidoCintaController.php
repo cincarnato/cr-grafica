@@ -165,7 +165,6 @@ class PedidoCintaController extends AbstractActionController
                     $this->logger()->err($e->getMessage());
                 }
 
-                var_dump($result);
 
                 $result["status"] = true;
             } catch (\Exception $e) {
