@@ -35,7 +35,7 @@
     <li>
         <strong>Dibujo:</strong><br>
 
-        <?php if($fc->getDibujoPersonalizado()): ?>
+        <?php if($formularioCinta->getDibujoPersonalizado()): ?>
             <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos-personalizados/<?php echo $formularioCinta->getDibujoPersonalizado(); ?>">
         <?php else: ?>
             <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
@@ -54,7 +54,7 @@
         <tr>
             <td style="width:100px;min-width:100px;">
 
-                <?php if($fc->getDibujoPersonalizado()): ?>
+                <?php if($formularioCinta->getDibujoPersonalizado()): ?>
                     <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos-personalizados/<?php echo $formularioCinta->getDibujoPersonalizado(); ?>">
                 <?php else: ?>
                     <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
