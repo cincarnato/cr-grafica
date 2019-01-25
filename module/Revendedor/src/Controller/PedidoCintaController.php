@@ -160,7 +160,7 @@ class PedidoCintaController extends AbstractActionController
                 $this->mailManager()->setTemplate("revendedor/mail/nuevo-pedido", ["formularioCinta" => $formularioCinta]);
                 //$this->mailManager()->setBody("Se ha registrado un nuevo pedido con ID ". $id ." de revendedor del usuario ". $usuario);
                 try {
-                  $result =   $this->mailManager()->send();
+                  $this->mailManager()->send();
                 } catch (\Exception $e) {
                     $this->logger()->err($e->getMessage());
                 }
