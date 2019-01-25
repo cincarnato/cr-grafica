@@ -27,7 +27,7 @@
 
                     <tr>
                         <th>Estado</th>
-                        <td><span style="color: <?php echo($fc->getEstado()->getColor()); ?>"><?php echo($fc->getEstado()); ?></span></td>
+                        <td><span style="color: <?php echo $fc->getEstado()?$fc->getEstado()->getColor():""; ?>"><?php echo $fc->getEstado(); ?></span></td>
                     </tr>
 
                     <tr>

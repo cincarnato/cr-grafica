@@ -2,6 +2,7 @@
 
 namespace Revendedor\Controller;
 
+use Revendedor\Entity\Estado;
 use Revendedor\Entity\FormularioCinta;
 use Zend\Mvc\Controller\AbstractActionController;
 use Cr\Entity\CantidadPrecio;
@@ -88,8 +89,9 @@ class PedidoCintaController extends AbstractActionController
         if (!$formularioCinta) {
             $formularioCinta = new FormularioCinta();
             $identity = $this->identity();
-           $user= $this->getUserRepository()->find($identity->getId());
+            $user = $this->getUserRepository()->find($identity->getId());
             $formularioCinta->setUsuario($user);
+            $formularioCinta->setEstado($this->getEm()->getReference(Estado::class,1));
         }
 
         if ($this->getRequest()->isPost()) {
@@ -131,20 +133,20 @@ class PedidoCintaController extends AbstractActionController
                 $this->getEm()->persist($formularioCinta);
                 $this->getEm()->flush();
 
-                $id= $formularioCinta->getId();
+                $id = $formularioCinta->getId();
                 $usuario = $formularioCinta->getUsuario()->getUsername();
                 $mailUsuario = $formularioCinta->getUsuario()->getEmail();
                 $this->mailManager()->setFrom("ci.sys.virtual@gmail.com");
                 $this->mailManager()->addBcc("cristian.cdi@gmail.com");
                 $this->mailManager()->addTo("kristiansolution@gmail.com");
                 $this->mailManager()->addTo($mailUsuario);
-                $this->mailManager()->setSubject($usuario." - Grafica CR Print - Su pedido #".$id." de cinta fue cargado con exito");
-                $this->mailManager()->setTemplate("revendedor/mail/nuevo-pedido",["formularioCinta" => $formularioCinta]);
+                $this->mailManager()->setSubject($usuario . " - Grafica CR Print - Su pedido #" . $id . " de cinta fue cargado con exito");
+                $this->mailManager()->setTemplate("revendedor/mail/nuevo-pedido", ["formularioCinta" => $formularioCinta]);
                 //$this->mailManager()->setBody("Se ha registrado un nuevo pedido con ID ". $id ." de revendedor del usuario ". $usuario);
                 try {
                     $this->mailManager()->send();
-                }catch (\Exception $e){
-                $this->logger->err($e->getMessage());
+                } catch (\Exception $e) {
+                    $this->logger->err($e->getMessage());
                 }
 
                 $result["status"] = true;
@@ -175,7 +177,7 @@ class PedidoCintaController extends AbstractActionController
 
         $config = array();
         $config["pedido"]["id"] = $formularioCinta->getId();
-         $config["pedido"]["nombre"] = $formularioCinta->getNombre();
+        $config["pedido"]["nombre"] = $formularioCinta->getNombre();
 
 
         if ($formularioCinta->getColor()) {
