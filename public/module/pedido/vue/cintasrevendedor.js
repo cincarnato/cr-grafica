@@ -3,11 +3,13 @@ Vue.component('cintasrevendedor', {
     data: function () {
         return {
             disableEncargar: false,
+            logoPropio: 0,
             pedido: {
                 id: '',
                 listo: false,
                 nombre: '',
                 codigo: '',
+                dibujoPersonalizado: '',
                 dibujo: {
                     id: '',
                     nombre: '',
@@ -33,20 +35,41 @@ Vue.component('cintasrevendedor', {
     },
     methods: {
         encargar: function () {
-            if (this.pedido.nombre && this.pedido.color.id && this.pedido.colorFondo.id && this.pedido.dibujo.id && this.pedido.opcion.id) {
+            if (this.pedido.nombre &&
+                this.pedido.color.id &&
+                this.pedido.colorFondo.id &&
+                (this.pedido.dibujo.id || this.pedido.dibujoPersonalizado) &&
+                this.pedido.opcion.id) {
+
+
                 var that = this;
                 this.disableEncargar = true;
+
+                let data = {
+                    id: this.pedido.id,
+                    nombre: this.pedido.nombre,
+                    color: this.pedido.color.id,
+                    colorFondo: this.pedido.colorFondo.id,
+                    dibujo: this.pedido.dibujo.id,
+                    opcion: this.pedido.opcion.id
+                };
+
+                let formData = new FormData();
+
+                formData.append('id',this.pedido.id);
+                formData.append('nombre',this.pedido.nombre);
+                formData.append('color',this.pedido.color.id);
+                formData.append('dibujo',this.pedido.dibujo.id);
+                formData.append('opcion',this.pedido.opcion.id);
+                formData.append('dibujoPersonalizado',this.pedido.dibujoPersonalizado);
+
+
                 $.ajax({
                     url: '/revendedor/pedido-cinta/save/' + this.pedido.id,
                     method: 'post',
-                    data: {
-                        id: this.pedido.id,
-                        nombre: this.pedido.nombre,
-                        color: this.pedido.color.id,
-                        colorFondo: this.pedido.colorFondo.id,
-                        dibujo: this.pedido.dibujo.id,
-                        opcion: this.pedido.opcion.id
-                    }
+                    data: formData,
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false,  // tell jQuery not to set contentType
                 }).done(
                     function (data) {
                         console.log(data);
@@ -103,6 +126,9 @@ Vue.component('cintasrevendedor', {
         },
         changeopcion: function (data) {
             this.pedido.opcion.id = data;
+        },
+        processFile(event) {
+            this.pedido.dibujoPersonalizado = event.target.files[0]
         }
     },
     created: function () {
@@ -115,18 +141,21 @@ Vue.component('cintasrevendedor', {
     <div class="col-lg-12"> 
         <div class="form-group">
         <label class="handleeFont fyellow">1° Elegí un dibujo:</label>
+            <div class="clearfix"></div>
+        <input type="radio"  name="logoPropio" value="0" v-model="logoPropio" > <label>Dibujos Predefinidos</label><br>
+        <input type="radio"  name="logoPropio" value="1" v-model="logoPropio">  <label>Dibujo Propio</label>
+        
+        
         <div class="clearfix"></div>
-        <dibujo v-for="dibujo, index in config.dibujos" :key="dibujo.id" :entity="dibujo" v-on:changedibujo="changedibujo" :checked="dibujo.id == pedido.dibujo.id"></dibujo>
+        <dibujo v-if="logoPropio == 0" v-for="dibujo, index in config.dibujos" :key="dibujo.id" :entity="dibujo" v-on:changedibujo="changedibujo" :checked="dibujo.id == pedido.dibujo.id"></dibujo>
         </div>
     </div>
     
-     <div v-if="pedido.dibujo.id == 150" class="col-lg-12"> 
+     <div v-if="logoPropio == 1" class="col-lg-12"> 
         <div class="form-group">
-        <label class="handleeFont fyellow">Subir un dibujo personalizado:</label>
-        <div class="clearfix"></div>
-
-         <label class="btn btn-default glyphicon glyphicon-open">
-            <input type="file" name="dibujoPersonalizado" accept="jpg,png,jpeg,gif" class="form-control">
+         <label class="btn btn-warning glyphicon glyphicon-open">
+            <input type="file" name="dibujoPersonalizado" accept="image/*" class="form-control" v-on:change="processFile($event)">
+            <span>Subir Archivo</span>
          </label>
 
 
@@ -175,7 +204,7 @@ Vue.component('cintasrevendedor', {
     
     <div class="col-lg-6 col-xs-12">
     <label class="handleeFont fyellow">Vista Previa:</label>
-    <preview :dibujo="pedido.dibujo" :color="pedido.color.hexa" :colorFondo="pedido.colorFondo.hexa" :nombre="pedido.nombre"></preview>
+    <preview :dibujo="pedido.dibujo"  :logoPropio="logoPropio"  :color="pedido.color.hexa" :colorFondo="pedido.colorFondo.hexa" :nombre="pedido.nombre"></preview>
     </div>
     
     <div class="clearfix"></div>
@@ -191,7 +220,9 @@ Vue.component('cintasrevendedor', {
     <div class="clearfix"></div>
     <div class="col-lg-6 col-xs-12">
     <label class="handleeFont fyellow">Pedido Encargado:</label>
-    <preview :dibujo="pedido.dibujo" :color="pedido.color.hexa" :colorFondo="pedido.colorFondo.hexa" :nombre="pedido.nombre"></preview>
+    
+    
+    <preview :dibujo="pedido.dibujo" :logoPropio="logoPropio" :color="pedido.color.hexa" :colorFondo="pedido.colorFondo.hexa" :nombre="pedido.nombre"></preview>
     </div>
     </div>
     </div>

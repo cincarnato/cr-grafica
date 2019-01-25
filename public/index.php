@@ -3,8 +3,8 @@
 use Zend\Mvc\Application;
 use Zend\Stdlib\ArrayUtils;
 
-error_reporting(E_ALL|E_STRICT);
-ini_set('display_errors', 'off');
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
   
 
 /**

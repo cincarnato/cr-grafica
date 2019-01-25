@@ -4,6 +4,7 @@ namespace Revendedor\Controller;
 
 use Revendedor\Entity\Estado;
 use Revendedor\Entity\FormularioCinta;
+use Zend\Filter\File\RenameUpload;
 use Zend\Mvc\Controller\AbstractActionController;
 use Cr\Entity\CantidadPrecio;
 use Cr\Entity\Color;
@@ -91,11 +92,26 @@ class PedidoCintaController extends AbstractActionController
             $identity = $this->identity();
             $user = $this->getUserRepository()->find($identity->getId());
             $formularioCinta->setUsuario($user);
-            $formularioCinta->setEstado($this->getEm()->getReference(Estado::class,1));
+            $formularioCinta->setEstado($this->getEm()->getReference(Estado::class, 1));
         }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getPost();
+
+
+            $dibujoPersonalizado = $this->getRequest()->getFiles("dibujoPersonalizado");
+
+            if ($dibujoPersonalizado) {
+                $renameUpload = new RenameUpload([
+                    'target' => './public/media/dibujos-personalizados/',
+                    'randomize' => true,
+                    'use_upload_extension' => true,
+                ]);
+
+                $fileFiltered = $renameUpload->filter($dibujoPersonalizado);
+                $name = basename($fileFiltered['tmp_name']);
+                $formularioCinta->setDibujoPersonalizado($name);
+            }
 
             if ($data["nombre"]) {
                 $formularioCinta->setNombre($data["nombre"]);

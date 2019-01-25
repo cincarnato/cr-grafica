@@ -38,8 +38,16 @@
 
                     <tr>
                         <th>Dibujo</th>
-                        <td><?php echo ($fc->getDibujo()) ? $fc->getDibujo()->getNombre() : "-"; ?>
-                            (<?php echo ($fc->getDibujo()) ? $fc->getDibujo()->getImg() : "-"; ?>)
+                        <td>
+                            <?php if($fc->getDibujoPersonalizado()): ?>
+                                Dibujo Personalizado
+                            <?php else: ?>
+                                <?php echo ($fc->getDibujo()) ? $fc->getDibujo()->getNombre() : "-"; ?>
+                                (<?php echo ($fc->getDibujo()) ? $fc->getDibujo()->getImg() : "-"; ?>)
+                            <?php endif; ?>
+
+
+
                         </td>
                     </tr>
 
@@ -68,8 +76,14 @@
                     <div class="col-lg-8 col-lg-offset-2 col-xs-12">
                         <div class="bwhite">
                             <div class="col-lg-3 col-xs-3 text-center">
-                                <img src="<?php echo ($fc->getDibujo()) ? $fc->getDibujo()->getImg_fp() : ""; ?>"
-                                     class="img-responsive" style="widht:80px;height:80px;"/>
+                                <?php if($fc->getDibujoPersonalizado()): ?>
+                                    <img src="<?php echo ($fc->getDibujoPersonalizado()) ? $fc->getDibujoPersonalizado_fp() : ""; ?>"
+                                         class="img-responsive" style="widht:80px;height:80px;"/>
+                                <?php else: ?>
+                                    <img src="<?php echo ($fc->getDibujo()) ? $fc->getDibujo()->getImg_fp() : ""; ?>"
+                                         class="img-responsive" style="widht:80px;height:80px;"/>
+                                <?php endif; ?>
+
                             </div>
                             <div class="col-lg-9 col-xs-9 text-center"
                                  style="height:80px;background-color:<?php echo ($fc->getColorFondo()) ? $fc->getColorFondo()->getHexa() : '#FFFFFF'; ?>">

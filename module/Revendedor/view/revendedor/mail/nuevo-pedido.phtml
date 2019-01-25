@@ -34,7 +34,14 @@
 
     <li>
         <strong>Dibujo:</strong><br>
-        <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
+
+        <?php if($fc->getDibujoPersonalizado()): ?>
+            <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos-personalizados/<?php echo $formularioCinta->getDibujoPersonalizado(); ?>">
+        <?php else: ?>
+            <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
+        <?php endif; ?>
+
+
     </li>
 
 </ul>
@@ -46,7 +53,12 @@
     <table>
         <tr>
             <td style="width:100px;min-width:100px;">
-                <img style="width: 100px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
+
+                <?php if($fc->getDibujoPersonalizado()): ?>
+                    <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos-personalizados/<?php echo $formularioCinta->getDibujoPersonalizado(); ?>">
+                <?php else: ?>
+                    <img style="width: 50px" src="http://formularios.crearte.net.ar/media/dibujos/<?php echo $formularioCinta->getDibujo()->getImg(); ?>">
+                <?php endif; ?>
             </td>
             <td style="
                     min-width:400px;

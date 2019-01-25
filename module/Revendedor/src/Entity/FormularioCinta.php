@@ -236,17 +236,17 @@ class FormularioCinta
 
     public function getDibujoPersonalizado_ap()
     {
-        return "./public/media/dibujos-personalizados";
+        return "./public/media/dibujos-personalizados/";
     }
 
     public function getDibujoPersonalizado_wp()
     {
-        return "/media/dibujos-personalizados";
+        return "/media/dibujos-personalizados/";
     }
 
     public function getDibujoPersonalizado_fp()
     {
-        return "/media/dibujos-personalizados".$this->dibujoPersonalizado;
+        return "/media/dibujos-personalizados/".$this->dibujoPersonalizado;
     }
 
     public function __toString()
